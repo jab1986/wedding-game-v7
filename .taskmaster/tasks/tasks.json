@@ -145,7 +145,7 @@
         "id": 10,
         "title": "Refactor Glen's House Level",
         "description": "Improve the existing Glen's House level with beginner-friendly tutorial elements, better item interaction, and enhanced visual polish.",
-        "status": "pending",
+        "status": "done",
         "dependencies": [
           5,
           6
@@ -182,7 +182,7 @@
         "id": 13,
         "title": "Implement Glen's Bingo Mini-Game",
         "description": "Create a beginner-friendly engaging bingo mini-game with pattern recognition, scoring system, and celebration elements.",
-        "status": "pending",
+        "status": "done",
         "dependencies": [
           8
         ],
@@ -260,7 +260,7 @@
         "id": 19,
         "title": "Develop Audio Content & Integration",
         "description": "Create or integrate beginner-friendly chiptune-style music and sound effects that match the SNES aesthetic and enhance gameplay.",
-        "status": "pending",
+        "status": "in-progress",
         "dependencies": [
           7,
           18
@@ -374,7 +374,7 @@
       "description": "Main development tasks for the wedding game project",
       "created": "2025-06-19T20:23:00.000Z",
       "lastModified": "2025-06-19T20:23:00.000Z",
-      "updated": "2025-06-21T21:11:33.792Z"
+      "updated": "2025-06-23T21:27:49.885Z"
     }
   }
 }

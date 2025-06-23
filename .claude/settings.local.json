@@ -37,7 +37,8 @@
       "WebFetch(domain:www.giz.ai)",
       "mcp__taskmaster-server__get_task",
       "mcp__taskmaster-server__remove_task",
-      "WebFetch(domain:www.leofood.co.uk)"
+      "WebFetch(domain:www.leofood.co.uk)",
+      "WebFetch(domain:www.sounds-resource.com)"
     ],
     "deny": []
   }

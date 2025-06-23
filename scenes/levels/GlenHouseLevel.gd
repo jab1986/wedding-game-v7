@@ -181,6 +181,7 @@ func _on_disaster_timer_timeout() -> void:
 
 func _start_alien_disaster() -> void:
 	_set_disaster_phase(DisasterPhase.ALIENS)
+	AudioManager.play_sfx("disaster_alarm")
 	
 	# Spawn aliens
 	for i in range(3):
@@ -218,6 +219,7 @@ func _start_alien_disaster() -> void:
 
 func _start_fire_disaster() -> void:
 	_set_disaster_phase(DisasterPhase.FIRE)
+	AudioManager.play_sfx("disaster_alarm")
 	GameManager.flags["shed_on_fire"] = true
 	
 	# Create fire on shed
@@ -276,6 +278,7 @@ func _spawn_quinn() -> void:
 
 func _start_sewage_disaster() -> void:
 	_set_disaster_phase(DisasterPhase.SEWAGE)
+	AudioManager.play_sfx("disaster_alarm")
 	GameManager.flags["sewage_exploded"] = true
 	
 	# Create sewage effect
@@ -387,6 +390,7 @@ func _break_fence(fence_post: Node2D) -> void:
 		_escape_to_cafe()
 
 func _escape_to_cafe() -> void:
+	AudioManager.play_sfx("wedding_bell_chime")
 	hud.show_notification("You escaped the chaos! Time to regroup at Leo's Cafe!")
 	level_completed.emit()
 	

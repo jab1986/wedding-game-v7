@@ -111,7 +111,16 @@ func _load_audio_files() -> void:
 		"land": "land.wav",
 		"glen_confused": "glen_confused.wav",
 		"fire_crackle": "fire_crackle.wav",
-		"water_splash": "water_splash.wav"
+		"water_splash": "water_splash.wav",
+		# SNES-style wedding sound effects
+		"wedding_bell_chime": "wedding_bell_chime.wav",
+		"success_chime": "success_chime.wav",
+		"menu_select_snes": "menu_select_snes.wav",
+		"menu_confirm_snes": "menu_confirm_snes.wav",
+		"celebration_fanfare": "celebration_fanfare.wav",
+		"disaster_alarm": "disaster_alarm.wav",
+		"bingo_correct": "bingo_correct.wav",
+		"bingo_wrong": "bingo_wrong.wav"
 	}
 	
 	# Load music files if they exist

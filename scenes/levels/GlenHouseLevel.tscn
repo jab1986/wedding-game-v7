@@ -1,0 +1,235 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpn8x7k2gvsyh"]
+
+[ext_resource type="Script" path="res://scripts/levels/glen_house_enhanced.gd" id="1_j5pht"]
+[ext_resource type="PackedScene" uid="uid://bxm6w7g4cjt5r" path="res://scenes/entities/Player.tscn" id="2_kl9mn"]
+[ext_resource type="PackedScene" uid="uid://d3f8h2j9k6l4m" path="res://scenes/entities/NPC.tscn" id="3_n7p2q"]
+[ext_resource type="PackedScene" uid="uid://c8b4g9h3j2k5n" path="res://scenes/ui/HUD.tscn" id="4_t8r6s"]
+
+[node name="GlenHouseLevel" type="Node2D"]
+script = ExtResource("1_j5pht")
+
+[node name="Player" parent="." instance=ExtResource("2_kl9mn")]
+position = Vector2(100, 400)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 300)
+zoom = Vector2(1.2, 1.2)
+follow_smoothing_enabled = true
+follow_smoothing_speed = 5.0
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="House" type="Node2D" parent="Environment"]
+position = Vector2(150, 250)
+
+[node name="HouseSprite" type="Sprite2D" parent="Environment/House"]
+scale = Vector2(2, 2)
+
+[node name="HouseLight" type="PointLight2D" parent="Environment/House"]
+energy = 0.3
+texture_scale = 3.0
+color = Color(1, 0.9, 0.7, 1)
+
+[node name="HouseLabel" type="Label" parent="Environment/House"]
+offset_left = -30.0
+offset_top = -80.0
+offset_right = 30.0
+offset_bottom = -50.0
+text = "🏠 Glen's House"
+horizontal_alignment = 1
+
+[node name="Shed" type="Node2D" parent="Environment"]
+position = Vector2(500, 350)
+
+[node name="ShedSprite" type="Sprite2D" parent="Environment/Shed"]
+scale = Vector2(1.5, 1.5)
+
+[node name="ShedLabel" type="Label" parent="Environment/Shed"]
+offset_left = -25.0
+offset_top = -60.0
+offset_right = 25.0
+offset_bottom = -30.0
+text = "🛖 Shed"
+horizontal_alignment = 1
+
+[node name="Garden" type="Node2D" parent="Environment"]
+position = Vector2(400, 450)
+
+[node name="GardenArea" type="ColorRect" parent="Environment/Garden"]
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+color = Color(0.2, 0.6, 0.2, 0.3)
+
+[node name="GardenLabel" type="Label" parent="Environment/Garden"]
+offset_left = -30.0
+offset_top = -25.0
+offset_right = 30.0
+offset_bottom = 5.0
+text = "🌱 Garden"
+horizontal_alignment = 1
+
+[node name="Fence" type="StaticBody2D" parent="Environment"]
+position = Vector2(700, 400)
+
+[node name="FenceCollision" type="CollisionShape2D" parent="Environment/Fence"]
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="Glen" parent="NPCs" instance=ExtResource("3_n7p2q")]
+position = Vector2(300, 400)
+
+[node name="Quinn" parent="NPCs" instance=ExtResource("3_n7p2q")]
+position = Vector2(250, 400)
+visible = false
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("4_t8r6s")]
+
+[node name="PhaseLabel" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 60.0
+text = "Phase: Starting..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EscapePrompt" type="Label" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = -60.0
+text = "Break through the fence to escape!"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible = false
+
+[node name="TutorialPanel" type="Panel" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -200.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TutorialLabel" type="RichTextLabel" parent="UI/TutorialPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+bbcode_enabled = true
+text = "[b]Glen's House Tutorial[/b]
+
+[color=yellow]Controls:[/color]
+• WASD or Arrow Keys to move
+• Space to interact/attack
+• E to talk to NPCs
+
+[color=orange]Objectives:[/color]
+• Survive the disasters
+• Talk to Glen for hints
+• Break the fence to escape
+
+[color=red]Disasters:[/color]
+1. Alien Invasion
+2. Shed Fire
+3. Sewage Explosion
+
+[color=green]Tips:[/color]
+• Glen's mood affects disaster intensity
+• Chelsea scores matter to Glen
+• Quinn appears during emergencies"
+fit_content = true
+scroll_following = true
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="DisasterTimer" type="Timer" parent="Timers"]
+wait_time = 5.0
+one_shot = true
+
+[node name="TutorialTimer" type="Timer" parent="Timers"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="InteractionIndicators" type="Node2D" parent="."]
+
+[node name="GlenIndicator" type="Label" parent="InteractionIndicators"]
+position = Vector2(300, 370)
+text = "💬 Press E to talk"
+horizontal_alignment = 1
+modulate = Color(1, 1, 1, 0.8)
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="DisasterAudio" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="AmbientAudio" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="VisualEffects" type="Node2D" parent="."]
+
+[node name="ParticleEffects" type="Node2D" parent="VisualEffects"]
+
+[node name="SunlightParticles" type="CPUParticles2D" parent="VisualEffects/ParticleEffects"]
+position = Vector2(400, 100)
+amount = 30
+lifetime = 3.0
+direction = Vector2(0, 1)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+color = Color(1, 0.9, 0.7, 0.3)
+
+[node name="WindGrass" type="CPUParticles2D" parent="VisualEffects/ParticleEffects"]
+position = Vector2(400, 480)
+amount = 15
+lifetime = 2.0
+direction = Vector2(1, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 80.0
+color = Color(0.2, 0.8, 0.2, 0.5)
+
+[node name="Lighting" type="Node2D" parent="VisualEffects"]
+
+[node name="ShedGlow" type="PointLight2D" parent="VisualEffects/Lighting"]
+position = Vector2(500, 350)
+energy = 0.2
+texture_scale = 2.0
+color = Color(0.9, 0.7, 0.5, 1)
+
+[node name="GlobalLight" type="DirectionalLight2D" parent="VisualEffects/Lighting"]
+energy = 0.8
+color = Color(1, 0.95, 0.8, 1)
+
+[node name="Shadows" type="Node2D" parent="VisualEffects"]
+
+[node name="HouseShadow" type="Polygon2D" parent="VisualEffects/Shadows"]
+position = Vector2(170, 320)
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-20, 0, 20, 0, 25, 30, -25, 30)
+
+[node name="ShedShadow" type="Polygon2D" parent="VisualEffects/Shadows"]
+position = Vector2(520, 400)
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-15, 0, 15, 0, 20, 25, -20, 25)
