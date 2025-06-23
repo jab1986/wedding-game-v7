@@ -1,0 +1,185 @@
+# Mark & Jenny's Wedding Adventure - Product Requirements Document
+
+## Overview
+Mark & Jenny's Wedding Adventure is a disaster-filled SNES-style wedding adventure game built in Godot 4. Players navigate through chaotic wedding-day disasters to finally reach the ceremony. The game features humor reminiscent of South Park, pixelated SNES-style graphics, and a 10-15 minute gameplay experience optimized for desktop platforms with keyboard, mouse, and gamepad controls.
+
+## Core Features
+
+### Playable Characters
+- **Mark**: Punk drummer with fast drumstick attacks, primary protagonist
+- **Jenny**: Photographer with powerful camera bombs (unlocked after Glen Bingo scene)
+- **Character Switching**: Tab/L1 to switch between Mark and Jenny when both are available
+
+### Level Progression System
+1. **Amsterdam Tutorial** - Learn controls and propose (Mark only)
+2. **Glen's House Disasters** - Survive escalating chaos (Mark, then both)
+3. **Glen Bingo Mini-Game** - Quiz to unlock Jenny as playable character
+4. **Leo's Cafe Haven** - Rest area with character switching mechanics
+5. **Wedding Venue Combat** - Multi-phase combat encounters with allies
+6. **Boss Fight** - Two-phase battle against Acids Joe
+7. **Ceremony Scene** - Final victory cutscene
+
+### Combat System
+- **Mark's Attacks**: Drumstick melee combat, fence-breaking abilities
+- **Jenny's Attacks**: Camera bomb ranged attacks for psychedelic phase
+- **Ally Support**: NPCs like Gaz (dialogue combat), Matt Tibble (explosives), Dan Morisey (melee)
+- **Enemy Types**: Aliens, Roswell Band mini-bosses, final boss Acids Joe
+
+### NPC Interaction System
+- **Glen**: Confused dad who inadvertently causes disasters
+- **Quinn**: Competent mom providing hints and support
+- **Jack**: Hipster cafe owner offering healing items
+- **Agent Elf Band Members**: Hassan, Political Paul for comic relief and finale
+
+## User Experience
+
+### Target Audience
+- Fans of retro SNES-style games
+- Players who enjoy humor and chaos in games
+- Desktop gamers preferring keyboard/gamepad controls
+
+### Core User Flow
+1. Tutorial level teaches basic movement and interaction
+2. Glen's House introduces disaster scenarios and combat
+3. Glen Bingo unlocks second character and switching mechanics
+4. Leo's Cafe provides rest and preparation
+5. Wedding Venue escalates difficulty with multiple combat phases
+6. Boss fight requires mastery of both characters
+7. Ceremony provides satisfying conclusion
+
+### Control Scheme
+- **Keyboard**: Arrow Keys/WASD (move), Space (jump/interact), X (attack), Tab (switch), Escape (pause)
+- **Gamepad**: D-Pad/Stick (move), A (jump/interact), X (attack), L1 (switch), Start (pause)
+
+## Technical Architecture
+
+### Engine and Platform
+- **Godot 4.3+** for cross-platform desktop deployment
+- **Desktop-only optimization** (Windows, macOS, Linux)
+- **Minimum requirements**: 2GB RAM, OpenGL ES 3.0
+
+### Core Systems
+- **State Machine Pattern**: For all entity behaviors (characters, enemies, NPCs)
+- **Scene Management**: Level transitions via GameManager.level_order array
+- **Asset Management**: SpriteManager for consistent sprite sizing and loading
+- **Save/Load System**: Persistent game state for progression tracking
+
+### File Structure
+- **Assets**: Sprites (1024x1024 max), Audio (OGG format), Fonts
+- **Scenes**: Levels, Entities, UI, Effects organized by type
+- **Scripts**: Autoload globals, Entity behaviors, Utility functions
+- **Resources**: Character data, Dialogue trees
+
+### Integrated Plugins
+- **Dialogue Manager**: For NPC conversations and cutscenes
+- **Beehave**: AI behavior trees for complex enemy/boss behaviors
+- **Phantom Camera**: Dynamic camera control for cinematic moments
+
+## Development Roadmap
+
+### Phase 1: Core Foundation (MVP)
+- Basic player movement and controls
+- Scene structure and transitions
+- Sprite system with placeholder assets
+- Basic combat mechanics for Mark
+- Simple enemy AI for aliens
+- Glen's House level with basic disaster scenarios
+
+### Phase 2: Character Systems
+- Character switching mechanics
+- Jenny's camera bomb attacks
+- NPC interaction system
+- Dialogue system integration
+- Glen Bingo mini-game implementation
+- Character-specific abilities and animations
+
+### Phase 3: Level Content
+- Amsterdam Tutorial scene
+- Leo's Cafe rest area mechanics
+- Wedding Venue multi-phase combat
+- Ally NPC combat support systems
+- Environmental hazards and puzzles
+- Level-specific mechanics and interactions
+
+### Phase 4: Boss Fight System
+- Acids Joe Phase 1 (normal combat)
+- Transformation sequence with Agent Elf MIDI trigger
+- Phase 2 psychedelic mechanics requiring Jenny
+- Visual effects for phase transitions
+- Balanced difficulty curve and attack patterns
+
+### Phase 5: Polish and Completion
+- Ceremony cutscene system
+- Audio integration (music, SFX)
+- Visual effects and particle systems
+- Performance optimization
+- Save/Load functionality
+- Debug tools and testing features
+
+## Logical Dependency Chain
+
+### Foundation First
+1. **Movement and Controls** - Core player input system
+2. **Scene Management** - Ability to transition between levels
+3. **Sprite System** - Visual representation of game elements
+4. **Basic Combat** - Mark's drumstick attacks against simple enemies
+
+### Progressive Feature Building
+1. **Enemy AI** - Basic alien behavior for combat testing
+2. **Glen's House Level** - First playable area with disaster mechanics
+3. **Character Switching** - Framework for dual-character gameplay
+4. **Jenny's Abilities** - Camera bomb mechanics for boss fight requirement
+5. **NPC Systems** - Interaction and dialogue foundation
+
+### Integration and Polish
+1. **Mini-Games** - Glen Bingo as standalone feature
+2. **Multi-Phase Combat** - Wedding Venue encounters
+3. **Boss Fight Mechanics** - Two-phase Acids Joe battle
+4. **Cutscene System** - Amsterdam Tutorial and Ceremony scenes
+5. **Audio and Effects** - Final polish for complete experience
+
+## Risks and Mitigations
+
+### Technical Challenges
+- **Risk**: Complex state management for character switching
+- **Mitigation**: Use proven State Machine pattern, test early and often
+
+- **Risk**: Performance issues with particle effects and large sprites
+- **Mitigation**: Optimize assets early, implement performance monitoring
+
+- **Risk**: Plugin integration complexity
+- **Mitigation**: Test plugins in isolation, create fallback implementations
+
+### Scope Management
+- **Risk**: Feature creep expanding beyond 10-15 minute experience
+- **Mitigation**: Focus on core wedding disaster narrative, save extras for post-launch
+
+- **Risk**: Asset creation bottleneck
+- **Mitigation**: Use placeholder assets during development, final art in polish phase
+
+### User Experience
+- **Risk**: Controls feeling unresponsive on desktop
+- **Mitigation**: Early testing with target input devices, responsive design
+
+- **Risk**: Difficulty balancing for short play session
+- **Mitigation**: Frequent playtesting, adjustable difficulty options
+
+## Appendix
+
+### Debug Features
+- F1: Toggle hitbox display
+- F2: Skip to boss fight
+- F3: Unlock all items
+- Performance monitoring tools
+- Visual debugging for AI behavior
+
+### Asset Specifications
+- **Sprites**: Maximum 1024x1024, prefer smaller when possible
+- **Audio**: OGG format, 44.1kHz, stereo for music, mono for SFX
+- **Texture Atlases**: For related sprites to optimize loading
+
+### Development Guidelines
+- All scripts use class_name for organization
+- Snake_case for variables/functions, PascalCase for classes
+- Consistent Z-indexing: background (-10), world (0), characters (10), UI (100)
+- Comments: ## for class descriptions, # for method descriptions

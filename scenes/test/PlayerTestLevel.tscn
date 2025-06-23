@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw8qtxvl7jp3v"]
+
+[ext_resource type="PackedScene" uid="uid://bdk7n2m5vx4w" path="res://scenes/entities/Player.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://addons/wyvernbox_prefabs/ground_item_stack_view_2d.tscn" id="2"]
+[ext_resource type="Resource" path="res://scenes/items/wedding_ring_item_type.tres" id="3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(800, 50)
+
+[node name="PlayerTestLevel" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1")]
+position = Vector2(400, 300)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(400, 600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -25.0
+offset_right = 400.0
+offset_bottom = 25.0
+color = Color(0.5, 0.3, 0.2, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 300)
+
+;[node name="WeddingRingItem" parent="." instance=ExtResource("2")]
+;position = Vector2(500, 500)
+;item_type = ExtResource("3")
+;item_quantity = 1

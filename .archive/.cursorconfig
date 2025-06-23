@@ -1,0 +1,85 @@
+{
+  "project": {
+    "name": "Mark & Jenny's Wedding Disaster Adventure",
+    "description": "A wedding-themed game developed with Godot 4, featuring a humorous adventure through wedding day disasters",
+    "type": "godot",
+    "version": "1.0.0"
+  },
+  "engine": {
+    "type": "godot",
+    "version": "4.0+"
+  },
+  "mcps": {
+    "context7": {
+      "enabled": true,
+      "config": {
+        "outputDir": "./docs",
+        "format": "markdown",
+        "includePrivate": false,
+        "generateDiagrams": true
+      }
+    },
+    "taskmaster": {
+      "enabled": true,
+      "config": {
+        "tasksFile": "TASKS.md",
+        "progressTracking": true,
+        "priorityLevels": ["high", "medium", "low"],
+        "statusOptions": ["not-started", "in-progress", "completed", "blocked"]
+      }
+    },
+    "godot_mcp_server": {
+      "enabled": true,
+      "config": {
+        "port": 6007,
+        "debugMode": true,
+        "logLevel": "info",
+        "performanceMonitoring": true,
+        "visualDebugging": true
+      }
+    }
+  },
+  "assistants": {
+    "rovo_dev": {
+      "enabled": true,
+      "role": "troubleshooting",
+      "capabilities": ["code-review", "debugging", "optimization", "refactoring"]
+    }
+  },
+  "editor": {
+    "tabSize": 4,
+    "insertSpaces": false,
+    "formatOnSave": true,
+    "trimTrailingWhitespace": true,
+    "insertFinalNewline": true
+  },
+  "filePatterns": {
+    "gdscript": ["*.gd"],
+    "scene": ["*.tscn"],
+    "resource": ["*.tres", "*.res"],
+    "shader": ["*.gdshader"],
+    "documentation": ["*.md"]
+  },
+  "completion": {
+    "enableAutoImport": true,
+    "suggestClassNames": true,
+    "includeDocumentation": true,
+    "godotApiCompletion": true
+  },
+  "linting": {
+    "enabled": true,
+    "rules": {
+      "max-line-length": 100,
+      "trailing-whitespace": "error",
+      "unused-variable": "warning",
+      "missing-docstring": "warning"
+    }
+  },
+  "snippets": {
+    "gdscript": {
+      "class": "class_name ${1:ClassName} extends ${2:Node}\n\n## ${3:Class description}\n\n# Properties\n${4}\n\n# Methods\nfunc _ready():\n\t${5:pass}\n",
+      "func": "func ${1:function_name}(${2:parameters})${3: -> ${4:return_type}}:\n\t${5:pass}\n",
+      "signal": "signal ${1:signal_name}(${2:parameters})\n"
+    }
+  }
+}

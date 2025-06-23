@@ -1,0 +1,30 @@
+# Task ID: 20
+# Title: Create Documentation & User Manual
+# Status: pending
+# Dependencies: 15
+# Priority: low
+# Description: Develop comprehensive beginner-friendly documentation including user manual, developer documentation, and code comments.
+# Details:
+STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)
+Before starting implementation, MUST search Context7 for relevant Godot documentation:
+- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`
+- Search for specific topics related to the task
+- Document key findings and patterns
+- Follow Context7 documented best practices
+
+For this task, search for relevant documentation for creating and managing documentation.
+
+Documentation:
+1. Open Godot editor and use the script editor to add code comments.
+2. Develop a user manual using external documentation tools.
+3. Create developer documentation by organizing scripts in the FileSystem dock.
+4. Write API documentation for systems using GDScript comments.
+5. Save documentation files using the FileSystem dock.
+6. Test documentation accuracy by reviewing with team members.
+
+Common Mistakes:
+- Not organizing documentation properly, leading to confusion.
+- Forgetting to review documentation, causing inaccuracies.
+
+# Test Strategy:
+Review documentation accuracy, test installation instructions, verify troubleshooting steps using external documentation tools.

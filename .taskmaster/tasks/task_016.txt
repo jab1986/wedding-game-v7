@@ -1,0 +1,30 @@
+# Task ID: 16
+# Title: Implement Accessibility Features
+# Status: pending
+# Dependencies: 7
+# Priority: low
+# Description: Add beginner-friendly accessibility features including keyboard navigation, colorblind support, and adjustable text size for inclusive gameplay.
+# Details:
+STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)
+Before starting implementation, MUST search Context7 for relevant Godot documentation:
+- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`
+- Search for specific topics related to the task
+- Document key findings and patterns
+- Follow Context7 documented best practices
+
+For this task, search for: "UI accessibility keyboard navigation"
+
+Accessibility features:
+1. Open Godot editor and navigate to the InputMap in Project Settings.
+2. Set up full keyboard navigation by configuring input actions.
+3. Implement colorblind-friendly color schemes using the Inspector.
+4. Add adjustable text size options by creating UI elements in the Scene dock.
+5. Save changes using the FileSystem dock.
+6. Test accessibility features using the play button.
+
+Common Mistakes:
+- Not configuring input actions correctly, leading to navigation issues.
+- Forgetting to test accessibility features thoroughly, causing usability problems.
+
+# Test Strategy:
+Test with accessibility tools, colorblind simulation, keyboard-only navigation, various text sizes using Godot's play and debug tools.

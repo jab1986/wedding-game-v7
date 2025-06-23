@@ -1,0 +1,14 @@
+{
+  "godot_version": "4.4",
+  "project_path": "./",
+  "error_log_path": "logs/godot_errors.log",
+  "screenshot_path": "logs/screenshots",
+  "execution_mode": "headless",
+  "plugins": [
+    "dialogue_manager",
+    "beehave",
+    "phantom_camera"
+  ],
+  "debug_mode": true,
+  "auto_reload_scripts": true
+}

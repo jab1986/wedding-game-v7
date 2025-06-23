@@ -1,0 +1,88 @@
+# Wedding Game Project Prompt
+
+You are assisting with the development of "Mark & Jenny's Wedding Disaster Adventure," a wedding-themed game developed with Godot 4. The game features a humorous adventure through wedding day disasters where players navigate Mark and Jenny through alien invasions, sewage explosions, and a final showdown with the mysterious Acids Joe.
+
+## Project Context
+
+This is a SNES-inspired pixel art game with South Park humor, designed for a 10-15 minute playthrough on desktop and mobile platforms. The project follows a structured organization:
+- `assets/` - Sprites, audio, and fonts
+- `scenes/` - Game scenes, levels, UI, entities, and components
+- `scripts/` - Autoload scripts, resources, and utilities
+- `resources/` - Game data resources
+
+## Remaining Components to Implement
+
+### Scenes:
+1. **Glen Bingo Scene** - Quiz mini-game
+2. **Leo's Cafe Scene** - Rest area with character switching
+3. **Wedding Venue Scene** - Combat gauntlet before boss
+4. **Boss Fight Scene** - Acids Joe battle
+5. **Ceremony Scene** - Final victory scene
+
+### Systems:
+1. **Specific NPC implementations** - Glen, Quinn, Jack, etc.
+2. **Dialogue System** - For managing conversations
+3. **Mobile Controls** - Touch input handling
+4. **Save/Load System** - Persistent game state
+
+## Development Rules
+
+### Code Organization
+- All scripts must follow the established directory structure
+- Use class_name for all script classes
+- Add comments with `##` for class descriptions and `#` for method descriptions
+- Follow GDScript style guide (snake_case for variables/functions, PascalCase for classes)
+
+### Scene Organization
+- Each scene should have a root node named after the scene (e.g., "GlenBingoLevel")
+- Group related nodes using Node2D containers with descriptive names
+- Use consistent Z-indexing: background (-10), world (0), characters (10), UI (100)
+- Add scene metadata comments at the top of each script
+
+## MCP Integration
+
+### Context 7 (Documentation)
+- Document all public methods and properties
+- Create separate documentation files for complex systems
+- Use markdown format for documentation
+- Include usage examples for key systems
+
+### Taskmaster (Task Management)
+- Break down each remaining component into subtasks
+- Prioritize tasks based on dependencies
+- Track progress with completion percentages
+- Link tasks to relevant files/scenes
+
+### Godot MCP Server (Debugging)
+- Set up logging for key game events
+- Create debug visualization tools for hitboxes, paths, etc.
+- Implement performance monitoring
+- Add debug commands accessible through a console
+
+### Rovo Dev (Troubleshooting)
+- Document common issues and solutions
+- Create minimal reproduction cases for bugs
+- Use version control effectively (branches for features)
+- Implement automated tests where possible
+
+## When Assisting:
+
+1. **Understand the game's style and tone**: This is a humorous game with SNES-inspired graphics and South Park-style humor.
+
+2. **Follow Godot best practices**: Suggest solutions that align with Godot 4's recommended patterns and APIs.
+
+3. **Consider both platforms**: Remember the game targets both desktop and mobile, so consider input methods and screen sizes.
+
+4. **Maintain code organization**: Follow the established project structure and naming conventions.
+
+5. **Integrate with MCPs**: Leverage the MCP tools (Context 7, Taskmaster, Godot MCP Server) in your suggestions.
+
+6. **Focus on remaining components**: Prioritize helping with the scenes and systems that still need implementation.
+
+7. **Provide complete solutions**: When suggesting code, include necessary imports, signals, and connections.
+
+8. **Consider performance**: Suggest optimizations where appropriate, especially for mobile platforms.
+
+9. **Include documentation**: Add comments and documentation strings to code examples.
+
+10. **Reference existing code**: Build upon the patterns and systems already established in the project.

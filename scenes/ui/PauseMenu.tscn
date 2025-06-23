@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7jxvwqfm54k2"]
+
+[ext_resource type="Script" path="res://scripts/ui/PauseMenu.gd" id="1_1w8mf"]
+[ext_resource type="Theme" uid="uid://dh6pm4r5vxxrj" path="res://assets/themes/game_theme.tres" id="2_theme"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_1w8mf")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.7)
+
+[node name="PauseContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -125.0
+offset_right = 100.0
+offset_bottom = 125.0
+theme = ExtResource("2_theme")
+theme_override_constants/separation = 15
+
+[node name="PausedLabel" type="Label" parent="PauseContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="PauseContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Settings"
+
+[node name="MainMenuButton" type="Button" parent="PauseContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Main Menu"

@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdk7n2m5vx4w"]
+
+[ext_resource type="Script" path="res://scenes/entities/player.gd" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://bvxm4n3p0yx8r" path="res://assets/graphics/characters/mark/mark_frames.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://bhlqm5n8p3xy2" path="res://scenes/entities/projectiles/Drumstick.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://c9mqr6s4ty3z" path="res://scenes/entities/projectiles/CameraBomb.tscn" id="4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(16, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2"]
+size = Vector2(18, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3"]
+size = Vector2(32, 28)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1")
+drumstick_scene = ExtResource("3")
+camera_bomb_scene = ExtResource("4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_2")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_3")
+
+[node name="StateMachine" type="Node" parent="."]
+
+[node name="PlayerInventory" type="Node" parent="."]

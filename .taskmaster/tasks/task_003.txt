@@ -1,0 +1,16 @@
+# Task ID: 3
+# Title: Create Core Game Architecture & Autoloads
+# Status: done
+# Dependencies: 2
+# Priority: high
+# Description: Implement singleton systems for game management, audio management, and scene transitions using Godot's autoload system.
+# Details:
+Create autoload scripts:
+- GameManager (game state, progress tracking)
+- AudioManager (music/SFX management)
+- SceneTransition (smooth scene changes)
+- SaveSystem (save/load functionality)
+Configure autoloads in project settings
+
+# Test Strategy:
+Test each autoload system independently, verify singleton access from other scripts, test scene persistence

@@ -1,0 +1,87 @@
+# Cursor Rules for Wedding Game Project
+
+# Define file types and their associated rules
+[filetypes]
+# GDScript files
+*.gd = {
+  language = "gdscript",
+  indent = "tab",
+  line_length = 100,
+  style = "snake_case"
+}
+
+# Scene files
+*.tscn = {
+  language = "godot_scene",
+  binary = false
+}
+
+# Resource files
+*.tres = {
+  language = "godot_resource",
+  binary = false
+}
+
+# Import files
+*.import = {
+  binary = true,
+  ignore = true
+}
+
+# Project settings
+project.godot = {
+  language = "godot_project",
+  binary = false
+}
+
+# Documentation
+*.md = {
+  language = "markdown"
+}
+
+# Specific directories and their purposes
+[directories]
+scenes/ = "Game scenes organized by type"
+scripts/ = "Standalone scripts and utilities"
+resources/ = "Game data resources"
+assets/ = "Art, audio, and other media files"
+unconverted_files/ = "Files to be converted to Godot format"
+
+# MCP integration rules
+[mcp]
+# Context 7 for documentation
+context7 = {
+  docs_dir = "docs/",
+  format = "markdown",
+  auto_document = true
+}
+
+# Taskmaster for task management
+taskmaster = {
+  tasks_file = "TASKS.md",
+  progress_tracking = true
+}
+
+# Godot MCP Server for debugging
+godot_mcp = {
+  debug_mode = true,
+  log_level = "info",
+  performance_monitoring = true
+}
+
+# Code style and organization rules
+[style]
+class_naming = "PascalCase"
+function_naming = "snake_case"
+variable_naming = "snake_case"
+constant_naming = "SCREAMING_SNAKE_CASE"
+signal_naming = "snake_case"
+node_naming = "PascalCase"
+
+# Documentation requirements
+[documentation]
+class_header = true
+function_header = true
+parameter_description = true
+return_description = true
+example_code = "recommended"

@@ -1,0 +1,31 @@
+# Task ID: 7
+# Title: Create Comprehensive UI System
+# Status: pending
+# Dependencies: 3, 6
+# Priority: medium
+# Description: Develop a beginner-friendly cohesive UI system with main menu, pause menu, HUD, and dialogue system using consistent theming.
+# Details:
+STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)
+Before starting implementation, MUST search Context7 for relevant Godot documentation:
+- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`
+- Search for specific topics related to the task
+- Document key findings and patterns
+- Follow Context7 documented best practices
+
+For this task, search for: "Control UI anchors themes signals menu HUD"
+
+Create UI components:
+1. Open Godot editor and create a new scene for each UI component using the 'Scene' menu.
+2. Add 'Control' nodes for main menu, pause menu, HUD, and dialogue system using the '+' button.
+3. Set anchors and margins in the Inspector for proper alignment.
+4. Apply themes through the Inspector by selecting theme resources.
+5. Connect UI signals through the Node dock for interactions.
+6. Save each UI scene using the FileSystem dock.
+7. Test UI functionality using the play button.
+
+Common Mistakes:
+- Not setting anchors, causing UI elements to move unexpectedly.
+- Forgetting to connect signals, leading to non-responsive UI.
+
+# Test Strategy:
+Test all UI interactions, menu navigation, settings persistence, dialogue system functionality using Godot's play and debug tools.

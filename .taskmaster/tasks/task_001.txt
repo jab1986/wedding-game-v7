@@ -1,0 +1,15 @@
+# Task ID: 1
+# Title: Project Setup & Repository Initialization
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Set up Git repository, create proper .gitignore for Godot projects, and establish development environment with Cursor settings.
+# Details:
+1. Initialize Git repository with `git init`
+2. Create comprehensive .gitignore file excluding .godot/, export_presets.cfg, build artifacts
+3. Set up .vscode/settings.json for consistent formatting
+4. Create initial commit
+5. Establish branching strategy (main, develop, feature branches)
+
+# Test Strategy:
+Verify .gitignore excludes proper files, VSCode settings apply on save, Git repository is properly initialized

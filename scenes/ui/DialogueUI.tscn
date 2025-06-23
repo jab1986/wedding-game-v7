@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjx8ym2r5dmwh"]
+
+[ext_resource type="Script" path="res://scripts/ui/DialogueUI.gd" id="1_qx7pf"]
+[ext_resource type="Theme" uid="uid://dh6pm4r5vxxrj" path="res://assets/themes/game_theme.tres" id="2_theme"]
+
+[node name="DialogueUI" type="CanvasLayer"]
+theme = ExtResource("2_theme")
+script = ExtResource("1_qx7pf")
+
+[node name="DialoguePanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="DialogueBox" type="Panel" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -150.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="DialogueContent" type="VBoxContainer" parent="DialoguePanel/DialogueBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+theme_override_constants/separation = 10
+
+[node name="SpeakerName" type="Label" parent="DialoguePanel/DialogueBox/DialogueContent"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Character Name"
+
+[node name="DialogueText" type="RichTextLabel" parent="DialoguePanel/DialogueBox/DialogueContent"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "This is where the dialogue text will appear. It supports rich text formatting."
+fit_content = true
+
+[node name="ResponsesContainer" type="VBoxContainer" parent="DialoguePanel/DialogueBox/DialogueContent"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="ContinueButton" type="Button" parent="DialoguePanel/DialogueBox/DialogueContent"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Continue"
+
+[node name="SkipButton" type="Button" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 12
+text = "Skip"

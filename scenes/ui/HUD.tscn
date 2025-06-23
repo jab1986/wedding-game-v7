@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf2k8pl5gfkpn"]
+
+[ext_resource type="Script" path="res://scenes/ui/hud.gd" id="1_3h6kj"]
+[ext_resource type="Theme" uid="uid://dh6pm4r5vxxrj" path="res://assets/themes/game_theme.tres" id="2_theme"]
+
+[node name="HUD" type="CanvasLayer"]
+theme = ExtResource("2_theme")
+script = ExtResource("1_3h6kj")
+
+[node name="TopPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+
+[node name="TopLeft" type="HBoxContainer" parent="TopPanel"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 200.0
+theme_override_constants/separation = 10
+
+[node name="HealthLabel" type="Label" parent="TopPanel/TopLeft"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Health:"
+
+[node name="HealthBar" type="ProgressBar" parent="TopPanel/TopLeft"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
+[node name="TopRight" type="HBoxContainer" parent="TopPanel"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+theme_override_constants/separation = 10
+
+[node name="ScoreLabel" type="Label" parent="TopPanel/TopRight"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Score: 0"
+
+[node name="InventoryPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+offset_right = 400.0
+
+[node name="InventorySlots" type="HBoxContainer" parent="InventoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/separation = 5
+
+[node name="Slot1" type="Button" parent="InventoryPanel/InventorySlots"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+
+[node name="Slot2" type="Button" parent="InventoryPanel/InventorySlots"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2"
+
+[node name="Slot3" type="Button" parent="InventoryPanel/InventorySlots"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+
+[node name="Slot4" type="Button" parent="InventoryPanel/InventorySlots"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4"
+
+[node name="Slot5" type="Button" parent="InventoryPanel/InventorySlots"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"

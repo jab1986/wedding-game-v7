@@ -1,0 +1,30 @@
+# Task ID: 11
+# Title: Develop Leo's Cafe Scene
+# Status: pending
+# Dependencies: 7, 8
+# Priority: medium
+# Description: Create a beginner-friendly engaging cafe scene focused on social interactions, character development, and mini-game elements.
+# Details:
+STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)
+Before starting implementation, MUST search Context7 for relevant Godot documentation:
+- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`
+- Search for specific topics related to the task
+- Document key findings and patterns
+- Follow Context7 documented best practices
+
+For this task, search for: "Scene management transitions resource loading"
+
+Create Leo's Cafe:
+1. Open Godot editor and create a new scene for Leo's Cafe using the 'Scene' menu.
+2. Add nodes for social interactions and configure in the Inspector.
+3. Develop character dialogue trees using 'Control' nodes and connect signals.
+4. Integrate mini-games by adding 'Control' nodes and setting properties.
+5. Save the scene using the FileSystem dock.
+6. Test the scene using the play button.
+
+Common Mistakes:
+- Not connecting dialogue signals, leading to non-functional interactions.
+- Forgetting to save the scene, causing loss of progress.
+
+# Test Strategy:
+Test dialogue system, mini-game mechanics, character development tracking, scene atmosphere using Godot's play and debug tools.

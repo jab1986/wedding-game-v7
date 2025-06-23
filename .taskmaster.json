@@ -1,0 +1,20 @@
+{
+  "project_name": "Mark & Jenny's Wedding Adventure",
+  "tasks_directory": ".taskmaster/tasks",
+  "state_file": ".taskmaster/state.json",
+  "config_file": ".taskmaster/config.json",
+  "task_template": "task_template.md",
+  "priority_levels": ["Critical", "High", "Medium", "Low"],
+  "status_options": ["Not Started", "In Progress", "Blocked", "Completed"],
+  "categories": [
+    "Core Gameplay",
+    "Level Design",
+    "UI",
+    "Characters",
+    "Dialogue",
+    "AI",
+    "Audio",
+    "Graphics",
+    "Bug Fix"
+  ]
+}

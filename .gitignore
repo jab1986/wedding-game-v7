@@ -1,0 +1,192 @@
+# Godot 4 specific ignores
+.godot/
+.import/
+export.cfg
+export_presets.cfg
+*.tmp
+
+# Godot-specific files
+*.translation
+*.import
+
+# Build artifacts
+builds/
+exports/
+*.exe
+*.dmg
+*.app
+*.apk
+*.ipa
+*.pck
+*.zip
+
+# Editor-specific files
+.vscode/
+.vs/
+*.swp
+*.swo
+*~
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Node modules (if using any web-based tools)
+node_modules/
+
+# Python (if using any Python scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE specific
+*.sublime-project
+*.sublime-workspace
+
+# Game-specific ignores
+saves/
+screenshots/
+recordings/
+
+# Asset source files (keep compiled versions)
+*.blend1
+*.blend2
+*.fbx~
+*.max
+*.ma
+*.mb
+
+# Audio source files
+*.aup3
+*.reapeaks
+
+# Development tools
+.import/
+.mono/
+data_*/
+
+# Addons that shouldn't be tracked (uncomment as needed)
+# addons/
+# addons/*/
+
+# Project-specific temporary files
+.taskmaster/reports/
+.taskmaster/cache/
+
+# Version control
+.git/
+.svn/
+
+# Compiled documentation
+docs/_build/
+docs/build/
+
+# Test results
+test_results/
+coverage/
+
+# Profiling data
+*.prof
+
+# Platform-specific executables
+*.x86
+*.x64
+*.x86_64
+*.arm64
+
+# Debug symbols
+*.pdb
+*.debug
+
+# Case sensitivity issues (Windows)
+# Uncomment if working on case-sensitive filesystems
+# **/[Aa]ssets/
+# **/[Ss]cenes/
+# **/[Ss]cripts/
+
+# Mono-specific ignores
+mono_crash.*.json
+
+# System/IDE-specific ignores
+.directory
+*.swp
+*.swo
+
+# User-specific files
+*.user
+*.log
+
+# Temporary files
+*.temp
+.temp/
+
+# Asset source files (keep these in a separate folder)
+asset_sources/
+raw_assets/
+*.aseprite
+*.kra
+*.blend
+
+# Audio project files
+*.flp
+*.als
+*.reaper
+
+# Local configuration
+local_config.cfg
+debug.cfg
+
+# Save files (for development)
+savegame.dat
+quicksave.dat
+*.save
+
+# Screenshots
+screenshots/
+
+# Profiler data
+*.prof
+
+# Documentation builds
+docs/.doctrees/
+
+# Added by Task Master AI
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dev-debug.log
+# Dependency directories
+node_modules/
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+# OS specific
+
+# Added by Task Master AI
+logs
+.vscode

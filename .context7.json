@@ -1,0 +1,16 @@
+{
+  "project_type": "godot",
+  "godot_version": "4.4",
+  "search_paths": [
+    "https://docs.godotengine.org/en/stable/",
+    "https://docs.godotengine.org/en/stable/classes/",
+    "https://docs.godotengine.org/en/stable/tutorials/"
+  ],
+  "custom_docs": [
+    "docs/plugins_integration.md",
+    "docs/design/boss_fight_design.md",
+    "docs/design/enemies.md",
+    "docs/design/levels.md",
+    "docs/design/projectiles.md"
+  ]
+}

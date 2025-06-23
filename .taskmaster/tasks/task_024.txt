@@ -1,0 +1,30 @@
+# Task ID: 24
+# Title: Marketing Materials & Store Pages
+# Status: pending
+# Dependencies: 23
+# Priority: low
+# Description: Create beginner-friendly marketing materials including screenshots, trailers, store page descriptions, and promotional content.
+# Details:
+STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)
+Before starting implementation, MUST search Context7 for relevant Godot documentation:
+- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`
+- Search for specific topics related to the task
+- Document key findings and patterns
+- Follow Context7 documented best practices
+
+For this task, search for relevant documentation for marketing materials and store page creation.
+
+Marketing materials:
+1. Open Godot editor and use the play button to capture high-quality screenshots.
+2. Create gameplay trailers using external video editing tools.
+3. Write store page descriptions and metadata using external documentation tools.
+4. Develop social media promotional content using external graphic design tools.
+5. Prepare a press kit using external documentation tools.
+6. Review marketing material quality using external review tools.
+
+Common Mistakes:
+- Not capturing high-quality screenshots, leading to poor marketing materials.
+- Forgetting to review marketing materials, causing inaccuracies.
+
+# Test Strategy:
+Review marketing material quality, test store page functionality, verify metadata accuracy using external review tools.

@@ -1,0 +1,39 @@
+~ start
+
+Glen: Wait... is this my shed? Why am I holding drumsticks?
+Mark: Glen! We need your help. Jenny's been kidnapped by aliens!
+Glen: Aliens? I thought this was a bingo game...
+Mark: Focus Glen! Do you remember anything weird happening today?
+Glen: Well, I did find some mushrooms behind the shed...
+- Tell him about the aliens
+	Mark: There were bright lights and weird sounds!
+	Glen: Oh right! The space bingo tournament!
+	-> remember_aliens
+- Ask about the mushrooms  
+	Mark: What kind of mushrooms?
+	Glen: The colorful dancing ones... they were very friendly.
+	-> mushroom_effects
+
+~ remember_aliens
+
+Glen: Now I remember! They said something about a "wedding disruption protocol"
+Mark: That sounds serious. Do you know where they took Jenny?
+Glen: They mentioned the Amsterdam canals... something about a "final boss fight"
+Mark: We have to get there! Can you help?
+Glen: Of course! I'll bring my lucky bingo dabber!
+
+=> END
+
+~ mushroom_effects
+
+Glen: They told me the secret of happiness is... *hiccup* ...finding your car keys.
+Mark: Glen, that doesn't make sense.
+Glen: Nothing makes sense anymore, Mark. That's the point!
+Mark: We need to focus. Jenny needs our help!
+Glen: Right! Jenny! She makes excellent sandwiches.
+- Try to explain again
+	Mark: The ALIENS took her, Glen!
+	Glen: Ohhh, the space people! Why didn't you say so?
+	-> remember_aliens
+
+=> END

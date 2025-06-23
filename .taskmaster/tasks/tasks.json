@@ -1,0 +1,380 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Set Up Godot Engine",
+        "description": "Download, install, and configure the Godot Engine on Linux, then import the wedding-game-v6 project.",
+        "status": "done",
+        "priority": "high",
+        "dependencies": [],
+        "details": "Provide a hands-on tutorial for beginners to set up the Godot Engine on Linux:\n- Navigating to the Godot Engine download page\n- Downloading the correct version for Linux\n- Extracting the executable\n- Running the Godot Project Manager\n- Importing the existing wedding-game-v6 project from your file system.",
+        "testStrategy": "Confirm that the Godot Engine starts successfully and that the 'wedding-game-v6' project can be opened from the Project Manager without any errors."
+      },
+      {
+        "id": 2,
+        "title": "Project Setup & Repository Initialization",
+        "description": "Set up Git repository, create proper .gitignore for Godot projects, and establish development environment with Cursor settings.",
+        "status": "done",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "details": "1. Initialize Git repository with `git init`\n2. Create comprehensive .gitignore file excluding .godot/, export_presets.cfg, build artifacts\n3. Set up .vscode/settings.json for consistent formatting\n4. Create initial commit\n5. Establish branching strategy (main, develop, feature branches)",
+        "testStrategy": "Verify .gitignore excludes proper files, VSCode settings apply on save, Git repository is properly initialized"
+      },
+      {
+        "id": 3,
+        "title": "Implement Proper Godot Project Structure",
+        "description": "Reorganize project files according to Godot 4 best practices with proper folder structure for assets, scenes, and scripts.",
+        "status": "done",
+        "priority": "high",
+        "dependencies": [
+          2
+        ],
+        "details": "Create folder structure:\n- /assets/ (audio/music, audio/sfx, fonts, graphics/characters, graphics/environments, graphics/ui, graphics/effects)\n- /scenes/ (levels, characters, ui, effects)\n- /scripts/ (autoloads, components, managers)\n- /addons/\n- /exports/\nMove existing files to appropriate locations",
+        "testStrategy": "Verify all assets are organized properly, scenes load correctly from new locations, no broken file references"
+      },
+      {
+        "id": 4,
+        "title": "Create Core Game Architecture & Autoloads",
+        "description": "Implement singleton systems for game management, audio management, and scene transitions using Godot's autoload system.",
+        "status": "done",
+        "priority": "high",
+        "dependencies": [
+          3
+        ],
+        "details": "Create autoload scripts:\n- GameManager (game state, progress tracking)\n- AudioManager (music/SFX management)\n- SceneTransition (smooth scene changes)\n- SaveSystem (save/load functionality)\nConfigure autoloads in project settings",
+        "testStrategy": "Test each autoload system independently, verify singleton access from other scripts, test scene persistence"
+      },
+      {
+        "id": 5,
+        "title": "Create Player Character Scene",
+        "description": "A beginner-friendly, step-by-step guide for creating a player character scene from scratch using the Godot 4.4.1 editor interface.",
+        "status": "done",
+        "dependencies": [
+          4
+        ],
+        "priority": "high",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Opening Godot and Project Navigation",
+            "description": "Guide the user on how to open the Godot editor, load the project, and navigate the interface, including the Scene dock, Inspector, and FileSystem.",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Creating a New Scene",
+            "description": "Provide step-by-step instructions for creating a new scene in the Godot editor, including using the '+' button to add nodes.",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Adding Nodes Through Interface",
+            "description": "Explain how to add nodes using the '+' button, select appropriate nodes, and rename them using the Scene dock.",
+            "status": "done"
+          },
+          {
+            "id": 4,
+            "title": "Setting Up Node Properties",
+            "description": "Guide the user on setting node properties using the Inspector panel, including setting up CollisionShape2D and AnimatedSprite2D properties.",
+            "status": "done"
+          },
+          {
+            "id": 5,
+            "title": "Connecting the Script",
+            "description": "Show how to attach the existing player.gd script to the player node through the interface, including exact button clicks and menu locations.",
+            "status": "done",
+            "details": "Step-by-step instructions for attaching the player.gd script:\n\n1. **Select the Root Node**: In the Scene dock, click on your player's root node (CharacterBody2D) to select it.\n\n2. **Access Script Attachment**: In the Inspector panel (usually on the right), look for the script icon at the top toolbar. Click the 'Attach Script' button (paper with a plus icon).\n\n3. **Script Dialog Setup**: \n   - In the 'Attach Script' dialog, set 'Path' to: `scenes/entities/player.gd`\n   - The 'Language' should be set to 'GDScript'\n   - The 'Class Name' field can remain empty or use 'Player'\n   - Leave 'Inherits' as 'CharacterBody2D'\n\n4. **Attach Existing Script**: Click 'Load' button instead of 'Create' to browse for the existing script file at `scenes/entities/player.gd`.\n\n5. **Verify Connection**: After attaching, you'll see a small script icon next to your root node in the Scene dock, confirming the script is connected.\n\n6. **Save the Scene**: Press Ctrl+S or go to Scene > Save Scene to save your player scene with the script attached.\n\nCommon Mistakes:\n- Creating a new script instead of loading the existing one\n- Not selecting the correct root node before attaching\n- Forgetting to save the scene after attaching the script"
+          },
+          {
+            "id": 6,
+            "title": "Testing Movement in Editor",
+            "description": "Instruct on using the play button to test movement controls in the editor, and what to expect on screen.",
+            "status": "done",
+            "details": "Step-by-step instructions for testing player movement:\n\n1. **Set Main Scene**: Go to Project > Project Settings > Application > Run > Main Scene. Set it to your player scene path (scenes/entities/Player.tscn).\n\n2. **Test the Scene**: Click the 'Play' button (▶️) in the top toolbar, or press F5. If prompted to select a main scene, choose your Player.tscn file.\n\n3. **Expected Behavior**: \n   - A game window should open showing your player character\n   - Character should be visible with idle animation playing\n   - Use WASD or arrow keys to move the player left/right\n   - Press Spacebar to jump\n   - Character sprite should flip when changing directions\n   - Walking animation should play when moving\n\n4. **Testing Controls**:\n   - Left/Right movement: A/D keys or Left/Right arrows\n   - Jump: Spacebar or W/Up arrow\n   - Attack: Left mouse button or Enter key\n   - Character switch: Tab key (if Jenny is unlocked)\n\n5. **What You Should See**:\n   - Smooth character movement with physics\n   - Animation changes (idle → walk → jump)\n   - Character responds immediately to input\n   - No errors in the output panel\n\n6. **Stop Testing**: Press the Stop button (⏹️) or close the game window to return to the editor.\n\nCommon Issues:\n- No movement: Check input map in Project Settings\n- Character falls through ground: Add a StaticBody2D floor\n- Animations not playing: Verify sprite frames are assigned"
+          },
+          {
+            "id": 7,
+            "title": "Scene Saving and Organization",
+            "description": "Explain proper file naming and organization for saving the scene, including common beginner mistakes to avoid.",
+            "status": "done",
+            "details": "Step-by-step instructions for saving and organizing your player scene:\n\n1. **Save the Scene**: Press Ctrl+S or go to Scene > Save Scene As...\n\n2. **Choose Location**: Navigate to the `scenes/entities/` folder in the file dialog.\n\n3. **File Naming**:\n   - Use PascalCase: `Player.tscn` (not `player.tscn` or `PLAYER.tscn`)\n   - Be descriptive: `PlayerCharacter.tscn` is better than `PC.tscn`\n   - Match script names: If script is `player.gd`, scene could be `Player.tscn`\n\n4. **Folder Organization**:\n   - Characters: `scenes/entities/`\n   - UI Elements: `scenes/ui/`\n   - Levels: `scenes/levels/`\n   - Effects: `scenes/effects/`\n\n5. **Verify Save**: Check that your scene appears in the FileSystem dock under the correct path.\n\n6. **Set as Main Scene** (if needed): Go to Project > Project Settings > Application > Run > Main Scene and select your saved scene.\n\nCommon Mistakes:\n- Saving in wrong folder (root directory instead of organized folders)\n- Using spaces in filenames: `Player Character.tscn` → `PlayerCharacter.tscn`\n- Inconsistent naming: mixing camelCase, snake_case, PascalCase\n- Not saving before testing (changes are lost)\n- Overwriting important scenes accidentally\n\nBest Practices:\n- Save frequently (Ctrl+S)\n- Use version control friendly names (no special characters)\n- Follow project naming conventions consistently\n- Keep backup copies of important scenes"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Implement Inventory & Item System",
+        "description": "Create a beginner-friendly inventory system for collecting and managing items like the wedding ring, with proper UI integration.",
+        "status": "done",
+        "dependencies": [
+          5
+        ],
+        "priority": "medium",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for: \"Resource management UI integration signals JSON serialization\"\n\nCreate inventory system:\n1. Open Godot editor and create a new scene using the 'Scene' menu.\n2. Add a 'Control' node by clicking the '+' button in the Scene dock.\n3. Use the Inspector panel to set anchors for the Control node.\n4. Add child nodes for inventory items using the '+' button.\n5. Connect signals through the Node dock for item interactions.\n6. Save the scene using the FileSystem dock.\n7. Test the inventory UI using the play button.\n\nCommon Mistakes:\n- Forgetting to save the scene after changes.\n- Not setting anchors properly, leading to UI misalignment.\n<info added on 2025-06-21T00:06:14.678Z>\n**IMPLEMENTATION UPDATE - Wyvernbox Inventory System Selected**\n\nAfter researching available inventory solutions, decided to use the Wyvernbox Inventory System instead of building from scratch. This addon provides:\n\n- Action RPG-focused design perfect for wedding game adventure elements\n- Simple drag-and-drop prefab system from `addons/wyvernbox_prefabs`\n- Proven stability with 132 GitHub stars and active development\n- Comprehensive feature set including basic inventory, ground items, UI integration, and gesture support\n- Significant time savings (weeks reduced to hours)\n\n**Installation Status**: COMPLETE\n- Downloaded from GitHub repository (don-tnowe/godot-wyvernbox-inventory)\n- Extracted to project directories: `addons/wyvernbox/` and `addons/wyvernbox_prefabs/`\n- Example scenes and documentation included\n- Ready for integration with existing player system\n\n**Updated Implementation Steps**:\n1. Enable Wyvernbox plugin in Project Settings > Plugins\n2. Create ItemType resource for wedding ring using Wyvernbox system\n3. Add inventory component to existing Player scene\n4. Integrate pickup system with current player mechanics\n5. Test inventory UI functionality and item collection\n6. Configure wedding ring as special quest item\n\n**Note**: Original manual UI creation steps replaced with Wyvernbox prefab integration approach.\n</info added on 2025-06-21T00:06:14.678Z>",
+        "testStrategy": "Test item pickup, inventory UI updates, save/load persistence, edge cases (full inventory, duplicate items) using Godot's built-in play and debug tools."
+      },
+      {
+        "id": 7,
+        "title": "Enhance Audio Management System",
+        "description": "Improve existing audio-manager.gd with beginner-friendly music transitions, sound effect management, and user settings integration.",
+        "status": "done",
+        "dependencies": [
+          4
+        ],
+        "priority": "medium",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for: \"AudioStreamPlayer audio bus effects management\"\n\nEnhance audio system:\n1. Open Godot editor and navigate to the Audio dock.\n2. Add an 'AudioStreamPlayer' node using the '+' button in the Scene dock.\n3. Load audio files through the FileSystem dock and assign them in the Inspector.\n4. Configure audio buses in the Audio dock for effects management.\n5. Use the Inspector to set volume controls and audio settings.\n6. Test audio transitions and effects using the play button.\n\nCommon Mistakes:\n- Not assigning audio files correctly in the Inspector.\n- Forgetting to configure audio buses, leading to no sound output.",
+        "testStrategy": "Test music transitions, sound effect triggering, volume controls, audio settings persistence using Godot's play and debug tools."
+      },
+      {
+        "id": 8,
+        "title": "Create Comprehensive UI System",
+        "description": "Develop a beginner-friendly cohesive UI system with main menu, pause menu, HUD, and dialogue system using consistent theming.",
+        "status": "done",
+        "dependencies": [
+          4,
+          7
+        ],
+        "priority": "medium",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for: \"Control UI anchors themes signals menu HUD\"\n\nCreate UI components:\n1. Open Godot editor and create a new scene for each UI component using the 'Scene' menu.\n2. Add 'Control' nodes for main menu, pause menu, HUD, and dialogue system using the '+' button.\n3. Set anchors and margins in the Inspector for proper alignment.\n4. Apply themes through the Inspector by selecting theme resources.\n5. Connect UI signals through the Node dock for interactions.\n6. Save each UI scene using the FileSystem dock.\n7. Test UI functionality using the play button.\n\nCommon Mistakes:\n- Not setting anchors, causing UI elements to move unexpectedly.\n- Forgetting to connect signals, leading to non-responsive UI.",
+        "testStrategy": "Test all UI interactions, menu navigation, settings persistence, dialogue system functionality using Godot's play and debug tools."
+      },
+      {
+        "id": 10,
+        "title": "Refactor Glen's House Level",
+        "description": "Improve the existing Glen's House level with beginner-friendly tutorial elements, better item interaction, and enhanced visual polish.",
+        "status": "pending",
+        "dependencies": [
+          5,
+          6
+        ],
+        "priority": "medium",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for: \"Scene management transitions resource loading\"\n\nEnhance Glen's House:\n1. Open Godot editor and load Glen's House scene using the FileSystem dock.\n2. Add tutorial elements using 'Control' nodes and set properties in the Inspector.\n3. Improve item interactions by connecting signals through the Node dock.\n4. Enhance visuals by adjusting lighting and materials in the Inspector.\n5. Save changes using the FileSystem dock.\n6. Test the level using the play button.\n\nCommon Mistakes:\n- Not saving changes, leading to loss of progress.\n- Misconfiguring signals, causing interaction issues.",
+        "testStrategy": "Playtest tutorial flow, test item interactions, verify character dialogue system, check visual consistency using Godot's play and debug tools."
+      },
+      {
+        "id": 11,
+        "title": "Enhance Amsterdam Level",
+        "description": "Improve the Amsterdam level with beginner-friendly exploration mechanics, environmental puzzles, and cultural theming elements.",
+        "status": "done",
+        "dependencies": [
+          5
+        ],
+        "priority": "medium",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for: \"Scene management transitions resource loading\"\n\nEnhance Amsterdam level:\n1. Open Godot editor and load Amsterdam level using the FileSystem dock.\n2. Add exploration areas using 'StaticBody' nodes and configure in the Inspector.\n3. Create environmental puzzles by adding 'Area' nodes and setting properties.\n4. Integrate cultural elements by importing assets through the FileSystem dock.\n5. Save changes using the FileSystem dock.\n6. Test the level using the play button.\n\nCommon Mistakes:\n- Not configuring nodes properly, leading to gameplay issues.\n- Forgetting to save changes, causing data loss.",
+        "testStrategy": "Test exploration mechanics, puzzle solutions, level navigation, cultural accuracy, performance optimization using Godot's play and debug tools."
+      },
+      {
+        "id": 12,
+        "title": "Develop Leo's Cafe Scene",
+        "description": "Create a beginner-friendly engaging cafe scene focused on social interactions, character development, and mini-game elements.",
+        "status": "done",
+        "dependencies": [
+          8
+        ],
+        "priority": "medium",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for: \"Scene management transitions resource loading\"\n\nCreate Leo's Cafe:\n1. Open Godot editor and create a new scene for Leo's Cafe using the 'Scene' menu.\n2. Add nodes for social interactions and configure in the Inspector.\n3. Develop character dialogue trees using 'Control' nodes and connect signals.\n4. Integrate mini-games by adding 'Control' nodes and setting properties.\n5. Save the scene using the FileSystem dock.\n6. Test the scene using the play button.\n\nCommon Mistakes:\n- Not connecting dialogue signals, leading to non-functional interactions.\n- Forgetting to save the scene, causing loss of progress.",
+        "testStrategy": "Test dialogue system, mini-game mechanics, character development tracking, scene atmosphere using Godot's play and debug tools."
+      },
+      {
+        "id": 13,
+        "title": "Implement Glen's Bingo Mini-Game",
+        "description": "Create a beginner-friendly engaging bingo mini-game with pattern recognition, scoring system, and celebration elements.",
+        "status": "pending",
+        "dependencies": [
+          8
+        ],
+        "priority": "medium",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for: \"Scene management transitions resource loading\"\n\nCreate bingo mini-game:\n1. Open Godot editor and create a new scene for the bingo mini-game using the 'Scene' menu.\n2. Add 'Control' nodes for bingo card display and configure in the Inspector.\n3. Implement pattern recognition using GDScript in the script editor.\n4. Set up scoring and win conditions by connecting signals through the Node dock.\n5. Save the scene using the FileSystem dock.\n6. Test the mini-game using the play button.\n\nCommon Mistakes:\n- Not configuring nodes properly, leading to gameplay issues.\n- Forgetting to test pattern recognition thoroughly, causing errors.",
+        "testStrategy": "Test bingo mechanics, pattern recognition accuracy, scoring system, win conditions, performance with multiple cards using Godot's play and debug tools."
+      },
+      {
+        "id": 14,
+        "title": "Implement Scene Transition System",
+        "description": "Create beginner-friendly smooth scene transitions with loading screens, fade effects, and proper state management between levels.",
+        "status": "done",
+        "dependencies": [
+          4
+        ],
+        "priority": "high",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for: \"Scene loading transitions autoload patterns\"\n\nCreate transition system:\n1. Open Godot editor and create a new scene for transitions using the 'Scene' menu.\n2. Add 'Control' nodes for fade effects and configure in the Inspector.\n3. Implement loading screens by adding 'TextureRect' nodes and setting properties.\n4. Use the Project Settings to configure autoload for state management.\n5. Save the scene using the FileSystem dock.\n6. Test transitions using the play button.\n\nCommon Mistakes:\n- Not setting up autoload correctly, leading to state loss.\n- Forgetting to test transitions thoroughly, causing visual inconsistencies.",
+        "testStrategy": "Test transition smoothness, loading times, state preservation, memory management, visual consistency using Godot's play and debug tools."
+      },
+      {
+        "id": 15,
+        "title": "Create Comprehensive Testing Framework",
+        "description": "Implement beginner-friendly testing strategies including unit tests, integration tests, and automated testing for game systems.",
+        "status": "pending",
+        "dependencies": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "priority": "medium",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for: \"GDScript testing unit tests integration tests\"\n\nCreate testing framework:\n1. Open Godot editor and navigate to the script editor.\n2. Write unit tests using GDScript for core systems.\n3. Implement integration tests by creating test scenes and using the Inspector.\n4. Set up automated input testing using the InputMap in Project Settings.\n5. Save test scripts using the FileSystem dock.\n6. Run tests using Godot's built-in test runner.\n\nCommon Mistakes:\n- Not organizing test scripts properly, leading to confusion.\n- Forgetting to run tests regularly, causing undetected issues.",
+        "testStrategy": "Verify test coverage, automated test execution, performance benchmarks, regression detection using Godot's built-in test runner."
+      },
+      {
+        "id": 16,
+        "title": "Optimize Performance & Memory Management",
+        "description": "Profile and optimize game performance with beginner-friendly memory management, ensuring smooth gameplay across target platforms.",
+        "status": "pending",
+        "dependencies": [
+          10,
+          11,
+          12,
+          13
+        ],
+        "priority": "medium",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for: \"Performance optimization memory management profiling\"\n\nPerformance optimization:\n1. Open Godot editor and use the 'Debugger' panel for profiling.\n2. Monitor CPU and memory usage using the 'Profiler' tab.\n3. Optimize sprite rendering by adjusting properties in the Inspector.\n4. Implement object pooling using GDScript in the script editor.\n5. Save changes using the FileSystem dock.\n6. Test performance using the play button and Profiler.\n\nCommon Mistakes:\n- Not monitoring performance regularly, leading to unnoticed issues.\n- Forgetting to save optimization changes, causing data loss.",
+        "testStrategy": "Performance profiling, memory usage monitoring, frame rate consistency testing, resource loading optimization using Godot's play and debug tools."
+      },
+      {
+        "id": 17,
+        "title": "Implement Accessibility Features",
+        "description": "Add beginner-friendly accessibility features including keyboard navigation, colorblind support, and adjustable text size for inclusive gameplay.",
+        "status": "pending",
+        "dependencies": [
+          8
+        ],
+        "priority": "low",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for: \"UI accessibility keyboard navigation\"\n\nAccessibility features:\n1. Open Godot editor and navigate to the InputMap in Project Settings.\n2. Set up full keyboard navigation by configuring input actions.\n3. Implement colorblind-friendly color schemes using the Inspector.\n4. Add adjustable text size options by creating UI elements in the Scene dock.\n5. Save changes using the FileSystem dock.\n6. Test accessibility features using the play button.\n\nCommon Mistakes:\n- Not configuring input actions correctly, leading to navigation issues.\n- Forgetting to test accessibility features thoroughly, causing usability problems.",
+        "testStrategy": "Test with accessibility tools, colorblind simulation, keyboard-only navigation, various text sizes using Godot's play and debug tools."
+      },
+      {
+        "id": 18,
+        "title": "Create Art Asset Pipeline",
+        "description": "Establish a beginner-friendly consistent art creation workflow, sprite standards, and asset optimization for the SNES-style aesthetic.",
+        "status": "done",
+        "dependencies": [
+          3
+        ],
+        "priority": "medium",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for: \"Resource importing texture optimization\"\n\nArt pipeline:\n1. Open Godot editor and use the FileSystem dock to organize art assets.\n2. Set sprite creation standards by creating templates in the Scene dock.\n3. Ensure color palette consistency by setting colors in the Inspector.\n4. Optimize animation frames using the AnimationPlayer node.\n5. Save assets using the FileSystem dock.\n6. Test asset performance using the play button.\n\nCommon Mistakes:\n- Not organizing assets properly, leading to confusion.\n- Forgetting to test asset performance, causing slowdowns.",
+        "testStrategy": "Verify art consistency, sprite alignment, animation smoothness, file size optimization, loading performance using Godot's play and debug tools."
+      },
+      {
+        "id": 19,
+        "title": "Develop Audio Content & Integration",
+        "description": "Create or integrate beginner-friendly chiptune-style music and sound effects that match the SNES aesthetic and enhance gameplay.",
+        "status": "pending",
+        "dependencies": [
+          7,
+          18
+        ],
+        "priority": "medium",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for: \"Audio importing sound effects music\"\n\nAudio content:\n1. Open Godot editor and navigate to the Audio dock.\n2. Import chiptune music and sound effects using the FileSystem dock.\n3. Assign audio files to 'AudioStreamPlayer' nodes in the Scene dock.\n4. Configure audio settings in the Inspector for volume and looping.\n5. Save changes using the FileSystem dock.\n6. Test audio integration using the play button.\n\nCommon Mistakes:\n- Not assigning audio files correctly, leading to no sound.\n- Forgetting to configure audio settings, causing playback issues.",
+        "testStrategy": "Test audio quality, volume balancing, music transitions, sound effect timing, performance impact using Godot's play and debug tools."
+      },
+      {
+        "id": 20,
+        "title": "Implement Game Analytics & Telemetry",
+        "description": "Add beginner-friendly optional analytics to track player behavior, identify difficulty spikes, and gather data for game improvement.",
+        "status": "pending",
+        "dependencies": [
+          15
+        ],
+        "priority": "low",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for relevant documentation for analytics and telemetry implementation.\n\nAnalytics system:\n1. Open Godot editor and create a new script for analytics using the script editor.\n2. Implement player progression tracking using GDScript.\n3. Set up data collection by connecting signals through the Node dock.\n4. Ensure privacy compliance by configuring settings in Project Settings.\n5. Save scripts using the FileSystem dock.\n6. Test analytics using the play button and debug tools.\n\nCommon Mistakes:\n- Not ensuring privacy compliance, leading to potential issues.\n- Forgetting to test data collection, causing inaccurate analytics.",
+        "testStrategy": "Test data collection accuracy, privacy compliance, performance impact, dashboard functionality using Godot's play and debug tools."
+      },
+      {
+        "id": 21,
+        "title": "Create Documentation & User Manual",
+        "description": "Develop comprehensive beginner-friendly documentation including user manual, developer documentation, and code comments.",
+        "status": "pending",
+        "dependencies": [
+          16
+        ],
+        "priority": "low",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for relevant documentation for creating and managing documentation.\n\nDocumentation:\n1. Open Godot editor and use the script editor to add code comments.\n2. Develop a user manual using external documentation tools.\n3. Create developer documentation by organizing scripts in the FileSystem dock.\n4. Write API documentation for systems using GDScript comments.\n5. Save documentation files using the FileSystem dock.\n6. Test documentation accuracy by reviewing with team members.\n\nCommon Mistakes:\n- Not organizing documentation properly, leading to confusion.\n- Forgetting to review documentation, causing inaccuracies.",
+        "testStrategy": "Review documentation accuracy, test installation instructions, verify troubleshooting steps using external documentation tools."
+      },
+      {
+        "id": 22,
+        "title": "Playtesting & User Feedback Integration",
+        "description": "Conduct comprehensive beginner-friendly playtesting sessions, gather user feedback, and implement improvements based on player experience.",
+        "status": "pending",
+        "dependencies": [
+          16,
+          17
+        ],
+        "priority": "high",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for relevant documentation for playtesting and feedback integration.\n\nPlaytesting process:\n1. Open Godot editor and use the play button for internal testing.\n2. Conduct external playtesting with target audience using exported builds.\n3. Collect feedback using surveys or interviews.\n4. Analyze feedback and prioritize improvements using the script editor.\n5. Implement changes based on feedback using the Inspector.\n6. Test improvements using the play button.\n\nCommon Mistakes:\n- Not collecting enough feedback, leading to incomplete improvements.\n- Forgetting to prioritize feedback, causing inefficient changes.",
+        "testStrategy": "Test with diverse user groups, collect quantitative and qualitative feedback, measure improvement effectiveness using Godot's play and debug tools."
+      },
+      {
+        "id": 23,
+        "title": "Bug Fixing & Quality Assurance",
+        "description": "Comprehensive beginner-friendly bug fixing phase with systematic testing, issue tracking, and quality assurance processes.",
+        "status": "pending",
+        "dependencies": [
+          22
+        ],
+        "priority": "high",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for relevant documentation for bug fixing and quality assurance.\n\nQA process:\n1. Open Godot editor and use the 'Debugger' panel for bug identification.\n2. Track issues using an external issue tracking tool.\n3. Fix bugs by editing scripts in the script editor.\n4. Conduct regression testing using the play button.\n5. Perform edge case testing using the Inspector.\n6. Complete final quality assurance review using the play button.\n\nCommon Mistakes:\n- Not tracking issues systematically, leading to missed bugs.\n- Forgetting to conduct regression testing, causing reoccurring issues.",
+        "testStrategy": "Bug tracking system, regression test suite, edge case coverage, final QA checklist completion using Godot's play and debug tools."
+      },
+      {
+        "id": 24,
+        "title": "Export & Distribution Setup",
+        "description": "Configure beginner-friendly game exports for target platforms, set up distribution channels, and prepare release builds.",
+        "status": "pending",
+        "dependencies": [
+          23
+        ],
+        "priority": "medium",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for relevant documentation for export and distribution setup.\n\nExport setup:\n1. Open Godot editor and navigate to 'Project' > 'Export' in the menu.\n2. Configure export templates for Windows, macOS, Linux using the Export panel.\n3. Optimize build settings for each platform using the Inspector.\n4. Set up distribution channels (Steam, itch.io, etc.) using external tools.\n5. Create installer packages using the Export panel.\n6. Test exports on each target platform using the play button.\n\nCommon Mistakes:\n- Not configuring export templates correctly, leading to build failures.\n- Forgetting to test exports on all platforms, causing compatibility issues.",
+        "testStrategy": "Test exports on each target platform, verify installer functionality, test distribution channel integration using Godot's play and debug tools."
+      },
+      {
+        "id": 25,
+        "title": "Marketing Materials & Store Pages",
+        "description": "Create beginner-friendly marketing materials including screenshots, trailers, store page descriptions, and promotional content.",
+        "status": "pending",
+        "dependencies": [
+          24
+        ],
+        "priority": "low",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for relevant documentation for marketing materials and store page creation.\n\nMarketing materials:\n1. Open Godot editor and use the play button to capture high-quality screenshots.\n2. Create gameplay trailers using external video editing tools.\n3. Write store page descriptions and metadata using external documentation tools.\n4. Develop social media promotional content using external graphic design tools.\n5. Prepare a press kit using external documentation tools.\n6. Review marketing material quality using external review tools.\n\nCommon Mistakes:\n- Not capturing high-quality screenshots, leading to poor marketing materials.\n- Forgetting to review marketing materials, causing inaccuracies.",
+        "testStrategy": "Review marketing material quality, test store page functionality, verify metadata accuracy using external review tools."
+      },
+      {
+        "id": 26,
+        "title": "Launch Preparation & Post-Launch Support",
+        "description": "Final beginner-friendly launch preparations, release coordination, and establish post-launch support processes for updates and bug fixes.",
+        "status": "pending",
+        "dependencies": [
+          25
+        ],
+        "priority": "medium",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to the task\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nFor this task, search for relevant documentation for launch preparation and post-launch support.\n\nLaunch preparation:\n1. Open Godot editor and finalize build settings using the Export panel.\n2. Coordinate release schedule using external project management tools.\n3. Set up launch day monitoring using external monitoring tools.\n4. Establish post-launch support processes using external communication tools.\n5. Prepare update deployment pipeline using external version control tools.\n6. Test release process using the play button.\n\nCommon Mistakes:\n- Not coordinating release schedule properly, leading to launch delays.\n- Forgetting to prepare post-launch support, causing user dissatisfaction.",
+        "testStrategy": "Test release process, verify monitoring systems, test update deployment, prepare support documentation using external review tools."
+      },
+      {
+        "id": 27,
+        "title": "Test Task Creation API Functionality",
+        "description": "Create and execute a simple test task to verify the add_task API endpoint works correctly and handles task creation operations properly. Additionally, test the update_task functionality to ensure task modifications work as expected.",
+        "status": "pending",
+        "dependencies": [
+          4,
+          "5"
+        ],
+        "priority": "low",
+        "details": "STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)\nBefore starting implementation, MUST search Context7 for relevant Godot documentation:\n- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`\n- Search for specific topics related to API testing and task management\n- Document key findings and patterns\n- Follow Context7 documented best practices\n\nAPI Testing Implementation:\n1. Create a test script or use existing testing framework to interact with the add_task API\n2. Design a simple test task with minimal required fields:\n   - Title: \"Sample Test Task\"\n   - Description: \"Basic test task for API validation\"\n   - Basic implementation details\n   - Simple test strategy\n3. Send POST request to add_task endpoint with test task data\n4. Verify API response includes:\n   - Success status code (200/201)\n   - Generated task ID\n   - Confirmation of task creation\n5. Validate task data persistence by retrieving the created task\n6. Test error handling with invalid data:\n   - Missing required fields\n   - Invalid data types\n   - Malformed JSON\n7. Test update_task functionality:\n   - Modify the created test task with updated fields\n   - Send PUT/PATCH request to update_task endpoint\n   - Verify successful update response\n   - Confirm changes are persisted correctly\n   - Test partial updates (updating only specific fields)\n   - Test update error handling (invalid task ID, unauthorized updates)\n8. Clean up test data after validation\n9. Document API behavior and any discovered issues\n10. Create reusable test template for future API testing",
+        "testStrategy": "Execute the test task creation and verify: API returns success response with valid task ID, created task can be retrieved with correct data, error cases return appropriate error codes and messages, task appears in task list/database, all required fields are properly stored, API handles concurrent requests correctly, response time is within acceptable limits. Additionally test update functionality: task updates are applied correctly, partial updates work as expected, update error handling functions properly, updated task data persists correctly, and cleanup operations work properly for both creation and update scenarios.",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "name": "master",
+      "description": "Main development tasks for the wedding game project",
+      "created": "2025-06-19T20:23:00.000Z",
+      "lastModified": "2025-06-19T20:23:00.000Z",
+      "updated": "2025-06-21T21:11:33.792Z"
+    }
+  }
+}

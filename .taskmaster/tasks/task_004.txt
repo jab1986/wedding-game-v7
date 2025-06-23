@@ -1,0 +1,91 @@
+# Task ID: 4
+# Title: Refactor Player Character System
+# Status: pending
+# Dependencies: 3
+# Priority: high
+# Description: A beginner-friendly, step-by-step guide for creating a player character scene from scratch using the Godot 4.4.1 editor interface.
+# Details:
+Provide a hands-on tutorial for beginners to set up a player character scene in Godot 4.4.1:
+- Opening Godot and navigating the project interface
+- Creating a new scene and adding nodes through the interface
+- Setting up node properties using the Inspector panel
+- Connecting the existing player.gd script through the interface
+- Testing movement in the editor using the play button
+- Saving and organizing the scene with proper file naming
+
+# Test Strategy:
+Ensure each step is clear and executable by a beginner, verify that the player character scene functions correctly in the Godot editor, and check for common beginner mistakes.
+
+# Subtasks:
+## 1. Create Player Scene Structure [pending]
+### Dependencies: None
+### Description: Set up the player scene with CharacterBody2D as the root node, including CollisionShape2D and AnimatedSprite2D, following Context7 node hierarchy patterns.
+### Details:
+
+
+## 12. Set Up Godot Engine [pending]
+### Dependencies: None
+### Description: Download, install, and configure the Godot Engine on Linux, then import the wedding-game-v6 project.
+### Details:
+Provide a hands-on tutorial for beginners to set up the Godot Engine on Linux:\n- Navigating to the Godot Engine download page\n- Downloading the correct version for Linux\n- Extracting the executable\n- Running the Godot Project Manager\n- Importing the existing wedding-game-v6 project from your file system.
+
+## 2. Implement Movement System [pending]
+### Dependencies: None
+### Description: Use `Input.get_vector()` for 8-way movement and implement `move_and_slide()` in `_physics_process()`, following Context7 velocity normalization patterns.
+### Details:
+
+
+## 3. Set Up Animation System [pending]
+### Dependencies: None
+### Description: Control animation playback based on movement using AnimatedSprite2D, implementing animation state management as per Context7 patterns.
+### Details:
+
+
+## 4. Test in Godot Editor [pending]
+### Dependencies: None
+### Description: Verify movement feels responsive, test collision detection, and validate animation transitions using Context7 documented patterns.
+### Details:
+
+
+## 5. Opening Godot and Project Navigation [pending]
+### Dependencies: None
+### Description: Guide the user on how to open the Godot editor, load the project, and navigate the interface, including the Scene dock, Inspector, and FileSystem.
+### Details:
+
+
+## 6. Creating a New Scene [pending]
+### Dependencies: None
+### Description: Provide step-by-step instructions for creating a new scene in the Godot editor, including using the '+' button to add nodes.
+### Details:
+
+
+## 7. Adding Nodes Through Interface [pending]
+### Dependencies: None
+### Description: Explain how to add nodes using the '+' button, select appropriate nodes, and rename them using the Scene dock.
+### Details:
+
+
+## 8. Setting Up Node Properties [pending]
+### Dependencies: None
+### Description: Guide the user on setting node properties using the Inspector panel, including setting up CollisionShape2D and AnimatedSprite2D properties.
+### Details:
+
+
+## 9. Connecting the Script [pending]
+### Dependencies: None
+### Description: Show how to attach the existing player.gd script to the player node through the interface, including exact button clicks and menu locations.
+### Details:
+
+
+## 10. Testing Movement in Editor [pending]
+### Dependencies: None
+### Description: Instruct on using the play button to test movement controls in the editor, and what to expect on screen.
+### Details:
+
+
+## 11. Scene Saving and Organization [pending]
+### Dependencies: None
+### Description: Explain proper file naming and organization for saving the scene, including common beginner mistakes to avoid.
+### Details:
+
+

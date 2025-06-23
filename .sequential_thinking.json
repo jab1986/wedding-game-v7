@@ -1,0 +1,15 @@
+{
+  "project_type": "godot_game",
+  "thinking_steps": [
+    "Understand the problem",
+    "Identify relevant game systems",
+    "Break down into sub-problems",
+    "Consider potential solutions",
+    "Evaluate trade-offs",
+    "Select optimal approach",
+    "Plan implementation steps"
+  ],
+  "output_format": "markdown",
+  "include_code_examples": true,
+  "max_depth": 3
+}

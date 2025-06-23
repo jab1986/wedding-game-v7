@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://doe8r3s6tx7y"]
+
+[ext_resource type="PackedScene" uid="uid://bdk7n2m5vx4w" path="res://scenes/entities/Player.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bj5gc701h3uju" path="res://scenes/test/test_character_system.gd" id="2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(800, 32)
+
+[node name="TestLevel" type="Node2D"]
+script = ExtResource("2")
+
+[node name="Player" parent="." instance=ExtResource("1")]
+position = Vector2(100, 300)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(400, 350)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -16.0
+offset_right = 400.0
+offset_bottom = 16.0
+color = Color(0.4, 0.2, 0.1, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 300)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="StatsPanel" type="Panel" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -80.0
+offset_right = 200.0
+offset_bottom = -10.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/StatsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HappinessLabel" type="Label" parent="UI/StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Happiness: 50"
+
+[node name="EnergyLabel" type="Label" parent="UI/StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Energy: 100"
+
+[node name="CharacterLabel" type="Label" parent="UI/StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Character: Mark"

@@ -1,0 +1,121 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdx5k9m3f7qwx"]
+
+[ext_resource type="Script" path="res://scenes/levels/leo-cafe-scene.gd" id="1_cafe_script"]
+[ext_resource type="Theme" uid="uid://dh6pm4r5vxxrj" path="res://assets/themes/game_theme.tres" id="2_theme"]
+
+[node name="LeoCafeScene" type="Node2D"]
+script = ExtResource("1_cafe_script")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(100, 400)
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="Jack" type="CharacterBody2D" parent="NPCs"]
+position = Vector2(400, 350)
+
+[node name="Hipsters" type="Node2D" parent="NPCs"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("2_theme")
+
+[node name="ObjectiveLabel" type="Label" parent="UI/HUD"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -80.0
+offset_right = 400.0
+offset_bottom = -20.0
+theme = ExtResource("2_theme")
+theme_override_font_sizes/font_size = 16
+text = "Rest and prepare for the wedding venue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NotificationLabel" type="Label" parent="UI/HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 60.0
+theme = ExtResource("2_theme")
+theme_override_font_sizes/font_size = 14
+text = ""
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TutorialPopup" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 300)
+enabled = true
+zoom = Vector2(1.2, 1.2)
+
+[node name="CafeInterior" type="Node2D" parent="."]
+
+[node name="Counter" type="StaticBody2D" parent="CafeInterior"]
+position = Vector2(400, 350)
+
+[node name="CounterCollision" type="CollisionShape2D" parent="CafeInterior/Counter"]
+
+[node name="FoodDisplay" type="Node2D" parent="CafeInterior"]
+position = Vector2(500, 320)
+
+[node name="EnergyStation" type="Area2D" parent="CafeInterior"]
+position = Vector2(600, 300)
+
+[node name="EnergyStationCollision" type="CollisionShape2D" parent="CafeInterior/EnergyStation"]
+
+[node name="ExitDoor" type="Area2D" parent="CafeInterior"]
+position = Vector2(750, 400)
+
+[node name="ExitDoorCollision" type="CollisionShape2D" parent="CafeInterior/ExitDoor"]
+
+[node name="CoffeeOrderingStation" type="Area2D" parent="CafeInterior"]
+position = Vector2(300, 320)
+
+[node name="OrderingCollision" type="CollisionShape2D" parent="CafeInterior/CoffeeOrderingStation"]
+
+[node name="SocialInteractionZone" type="Node2D" parent="CafeInterior"]
+
+[node name="NetworkingArea1" type="Area2D" parent="CafeInterior/SocialInteractionZone"]
+position = Vector2(150, 350)
+
+[node name="NetworkingCollision1" type="CollisionShape2D" parent="CafeInterior/SocialInteractionZone/NetworkingArea1"]
+
+[node name="NetworkingArea2" type="Area2D" parent="CafeInterior/SocialInteractionZone"]
+position = Vector2(650, 450)
+
+[node name="NetworkingCollision2" type="CollisionShape2D" parent="CafeInterior/SocialInteractionZone/NetworkingArea2"]
+
+[node name="ConversationBubbles" type="Node2D" parent="CafeInterior/SocialInteractionZone"]
+
+[node name="MiniGameArea" type="Node2D" parent="CafeInterior"]
+
+[node name="BaristaStation" type="Area2D" parent="CafeInterior/MiniGameArea"]
+position = Vector2(350, 300)
+
+[node name="BaristaCollision" type="CollisionShape2D" parent="CafeInterior/MiniGameArea/BaristaStation"]
+
+[node name="LatteArtChallenge" type="Area2D" parent="CafeInterior/MiniGameArea"]
+position = Vector2(400, 280)
+
+[node name="LatteArtCollision" type="CollisionShape2D" parent="CafeInterior/MiniGameArea/LatteArtChallenge"]
+
+[node name="AmbientAudio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(400, 300)
+volume_db = -15.0

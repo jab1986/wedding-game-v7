@@ -1,0 +1,30 @@
+# Task ID: 19
+# Title: Implement Game Analytics & Telemetry
+# Status: pending
+# Dependencies: 8, 14
+# Priority: low
+# Description: Add beginner-friendly optional analytics to track player behavior, identify difficulty spikes, and gather data for game improvement.
+# Details:
+STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)
+Before starting implementation, MUST search Context7 for relevant Godot documentation:
+- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`
+- Search for specific topics related to the task
+- Document key findings and patterns
+- Follow Context7 documented best practices
+
+For this task, search for relevant documentation for analytics and telemetry implementation.
+
+Analytics system:
+1. Open Godot editor and create a new script for analytics using the script editor.
+2. Implement player progression tracking using GDScript.
+3. Set up data collection by connecting signals through the Node dock.
+4. Ensure privacy compliance by configuring settings in Project Settings.
+5. Save scripts using the FileSystem dock.
+6. Test analytics using the play button and debug tools.
+
+Common Mistakes:
+- Not ensuring privacy compliance, leading to potential issues.
+- Forgetting to test data collection, causing inaccurate analytics.
+
+# Test Strategy:
+Test data collection accuracy, privacy compliance, performance impact, dashboard functionality using Godot's play and debug tools.

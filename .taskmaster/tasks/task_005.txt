@@ -1,0 +1,31 @@
+# Task ID: 5
+# Title: Implement Inventory & Item System
+# Status: pending
+# Dependencies: 4
+# Priority: medium
+# Description: Create a beginner-friendly inventory system for collecting and managing items like the wedding ring, with proper UI integration.
+# Details:
+STEP 0: Context7 Documentation Check (REQUIRED FIRST STEP)
+Before starting implementation, MUST search Context7 for relevant Godot documentation:
+- Use `mcp_context7_get-library-docs` with `/godotengine/godot-docs`
+- Search for specific topics related to the task
+- Document key findings and patterns
+- Follow Context7 documented best practices
+
+For this task, search for: "Resource management UI integration signals JSON serialization"
+
+Create inventory system:
+1. Open Godot editor and create a new scene using the 'Scene' menu.
+2. Add a 'Control' node by clicking the '+' button in the Scene dock.
+3. Use the Inspector panel to set anchors for the Control node.
+4. Add child nodes for inventory items using the '+' button.
+5. Connect signals through the Node dock for item interactions.
+6. Save the scene using the FileSystem dock.
+7. Test the inventory UI using the play button.
+
+Common Mistakes:
+- Forgetting to save the scene after changes.
+- Not setting anchors properly, leading to UI misalignment.
+
+# Test Strategy:
+Test item pickup, inventory UI updates, save/load persistence, edge cases (full inventory, duplicate items) using Godot's built-in play and debug tools.
