@@ -55,16 +55,16 @@ var sfx_pool_size: int = 10
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	
+
 	# Create audio players
 	_create_audio_players()
-	
+
 	# Load audio files (if they exist)
 	_load_audio_files()
-	
+
 	# Load saved settings
 	_load_audio_settings()
-	
+
 	print("AudioManager initialized")
 
 func _create_audio_players() -> void:
@@ -72,14 +72,14 @@ func _create_audio_players() -> void:
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = MUSIC_BUS
 	add_child(music_player)
-	
+
 	# SFX player pool
 	for i in range(sfx_pool_size):
 		var sfx_player = AudioStreamPlayer.new()
 		sfx_player.bus = SFX_BUS
 		add_child(sfx_player)
 		sfx_players.append(sfx_player)
-	
+
 	# Voice player
 	voice_player = AudioStreamPlayer.new()
 	voice_player.bus = VOICE_BUS
@@ -89,7 +89,7 @@ func _load_audio_files() -> void:
 	# Define audio files to try loading
 	var music_files := {
 		"menu_theme": "menu_theme.ogg",
-		"amsterdam_romantic": "amsterdam_romantic.ogg", 
+		"amsterdam_romantic": "amsterdam_romantic.ogg",
 		"disaster_theme": "disaster_theme.ogg",
 		"glen_bingo": "glen_bingo.ogg",
 		"cafe_ambient": "cafe_ambient.ogg",
@@ -97,10 +97,10 @@ func _load_audio_files() -> void:
 		"wedding_march": "wedding_march.ogg",
 		"agent_elf_midi": "agent_elf_midi.ogg"
 	}
-	
+
 	var sfx_files := {
 		"menu_select": "menu_select.wav",
-		"menu_back": "menu_back.wav", 
+		"menu_back": "menu_back.wav",
 		"drumstick_throw": "drumstick_throw.wav",
 		"camera_flash": "camera_flash.wav",
 		"explosion": "explosion.wav",
@@ -122,7 +122,7 @@ func _load_audio_files() -> void:
 		"bingo_correct": "bingo_correct.wav",
 		"bingo_wrong": "bingo_wrong.wav"
 	}
-	
+
 	# Load music files if they exist
 	for track_name in music_files:
 		var path = MUSIC_PATH + music_files[track_name]
@@ -133,8 +133,8 @@ func _load_audio_files() -> void:
 				print("Loaded music: " + track_name)
 		else:
 			print("Music file not found: " + path + " (skipping)")
-	
-	# Load SFX files if they exist  
+
+	# Load SFX files if they exist
 	for sfx_name in sfx_files:
 		var path = SFX_PATH + sfx_files[sfx_name]
 		if FileAccess.file_exists(path):
@@ -144,18 +144,18 @@ func _load_audio_files() -> void:
 				print("Loaded SFX: " + sfx_name)
 		else:
 			print("SFX file not found: " + path + " (skipping)")
-	
+
 	print("Audio loading complete. Music tracks: %d, SFX: %d" % [music_tracks.size(), sound_effects.size()])
 
 ## Play music track
 func play_music(track_name: String, fade_in: bool = true) -> void:
 	if track_name == current_music and music_player.playing:
 		return
-	
+
 	if not track_name in music_tracks:
 		print("Music track not available: " + track_name + " (audio file missing)")
 		return
-	
+
 	# Stop current music
 	if music_player.playing and fade_in:
 		var tween = create_tween()
@@ -164,16 +164,16 @@ func play_music(track_name: String, fade_in: bool = true) -> void:
 		music_player.stop()
 	else:
 		music_player.stop()
-	
+
 	# Play new music
 	music_player.stream = music_tracks[track_name]
 	music_player.volume_db = -80.0 if fade_in else 0.0
 	music_player.play()
-	
+
 	if fade_in:
 		var tween = create_tween()
 		tween.tween_property(music_player, "volume_db", 0.0, 0.5)
-	
+
 	current_music = track_name
 	music_changed.emit(track_name)
 
@@ -181,12 +181,12 @@ func play_music(track_name: String, fade_in: bool = true) -> void:
 func stop_music(fade_out: bool = true) -> void:
 	if not music_player.playing:
 		return
-	
+
 	if fade_out:
 		var tween = create_tween()
 		tween.tween_property(music_player, "volume_db", -80.0, 0.5)
 		await tween.finished
-	
+
 	music_player.stop()
 	current_music = ""
 
@@ -204,7 +204,7 @@ func play_sfx(sfx_name: String, volume_offset: float = 0.0, pitch: float = 1.0) 
 	if not sfx_name in sound_effects:
 		print("Sound effect not available: " + sfx_name + " (audio file missing)")
 		return null
-	
+
 	var player = _get_available_sfx_player()
 	if player:
 		player.stream = sound_effects[sfx_name]
@@ -212,8 +212,25 @@ func play_sfx(sfx_name: String, volume_offset: float = 0.0, pitch: float = 1.0) 
 		player.pitch_scale = pitch
 		player.play()
 		return player
-	
+
 	return null
+
+## Play sound effect using object pool (optimized)
+func play_sfx_pooled(sfx_name: String, volume_offset: float = 0.0, pitch: float = 1.0) -> Node:
+	if not sfx_name in sound_effects:
+		print("Sound effect not available: " + sfx_name + " (audio file missing)")
+		return null
+
+	# Try to get pooled audio player (check if ObjectPool singleton is available)
+	var pooled_player = null
+	if has_node("/root/ObjectPool"):
+		pooled_player = get_node("/root/ObjectPool").get_object("audio_players")
+	if pooled_player and pooled_player.has_method("play_pooled"):
+		pooled_player.play_pooled(sound_effects[sfx_name], volume_offset, pitch)
+		return pooled_player
+	else:
+		# Fallback to regular SFX player
+		return play_sfx(sfx_name, volume_offset, pitch)
 
 ## Play sound effect with AudioStream
 func play_sfx_stream(stream: AudioStream, volume_offset: float = 0.0, pitch: float = 1.0) -> AudioStreamPlayer:
@@ -224,7 +241,7 @@ func play_sfx_stream(stream: AudioStream, volume_offset: float = 0.0, pitch: flo
 		player.pitch_scale = pitch
 		player.play()
 		return player
-	
+
 	return null
 
 ## Play voice/dialogue
@@ -240,7 +257,7 @@ func _get_available_sfx_player() -> AudioStreamPlayer:
 	for player in sfx_players:
 		if not player.playing:
 			return player
-	
+
 	# All players busy, use the first one
 	push_warning("All SFX players busy, reusing first player")
 	return sfx_players[0]

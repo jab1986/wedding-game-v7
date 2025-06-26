@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bf2k8pl5gfkpn"]
 
 [ext_resource type="Script" path="res://scenes/ui/hud.gd" id="1_3h6kj"]
-[ext_resource type="Theme" uid="uid://dh6pm4r5vxxrj" path="res://assets/themes/game_theme.tres" id="2_theme"]
+[ext_resource type="Theme" uid="uid://b0rikoqtewsdu" path="res://assets/themes/wedding_theme.tres" id="2_theme"]
 
 [node name="HUD" type="CanvasLayer"]
 theme = ExtResource("2_theme")

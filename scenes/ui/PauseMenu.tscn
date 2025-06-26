@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7jxvwqfm54k2"]
 
 [ext_resource type="Script" path="res://scripts/ui/PauseMenu.gd" id="1_1w8mf"]
-[ext_resource type="Theme" uid="uid://dh6pm4r5vxxrj" path="res://assets/themes/game_theme.tres" id="2_theme"]
+[ext_resource type="Theme" uid="uid://b0rikoqtewsdu" path="res://assets/themes/wedding_theme.tres" id="2_theme"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3

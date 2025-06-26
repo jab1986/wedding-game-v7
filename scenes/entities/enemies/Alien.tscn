@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c9yr5s3o8v7xz"]
+
+[ext_resource type="Script" path="res://scenes/entities/enemies/Alien.gd" id="1_2a3b4"]
+[ext_resource type="Texture2D" path="res://assets/graphics/placeholders/alien_spritesheet.png" id="2_5c6d7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1"]
+height = 32.0
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1"]
+radius = 20.0
+
+[node name="Alien" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_2a3b4")
+max_health = 30
+movement_speed = 80.0
+chase_speed = 120.0
+attack_damage = 10
+detection_range = 150.0
+attack_range = 50.0
+attack_cooldown = 1.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture = ExtResource("2_5c6d7")
+hframes = 4
+frame = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="HitBoxCollision" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_1")

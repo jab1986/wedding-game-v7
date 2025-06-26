@@ -1,0 +1,100 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqx1ymqr7n7ex"]
+
+[ext_resource type="Script" path="res://scenes/ui/FeedbackPrompt.gd" id="1"]
+[ext_resource type="Theme" path="res://assets/themes/wedding_theme.tres" id="2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0.1, 0.1, 0.1, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="FeedbackPrompt" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("2")
+script = ExtResource("1")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+
+[node name="VBox" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="Title" type="Label" parent="Background/VBox"]
+layout_mode = 2
+text = "Quick Feedback"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Background/VBox"]
+layout_mode = 2
+
+[node name="Question" type="Label" parent="Background/VBox"]
+layout_mode = 2
+text = "How would you rate this aspect?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="StarRating" type="HBoxContainer" parent="Background/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Star1" type="Button" parent="Background/VBox/StarRating"]
+layout_mode = 2
+text = "⭐"
+
+[node name="Star2" type="Button" parent="Background/VBox/StarRating"]
+layout_mode = 2
+text = "⭐"
+
+[node name="Star3" type="Button" parent="Background/VBox/StarRating"]
+layout_mode = 2
+text = "⭐"
+
+[node name="Star4" type="Button" parent="Background/VBox/StarRating"]
+layout_mode = 2
+text = "⭐"
+
+[node name="Star5" type="Button" parent="Background/VBox/StarRating"]
+layout_mode = 2
+text = "⭐"
+
+[node name="CommentLabel" type="Label" parent="Background/VBox"]
+layout_mode = 2
+text = "Optional comment:"
+
+[node name="CommentInput" type="LineEdit" parent="Background/VBox"]
+layout_mode = 2
+placeholder_text = "Any specific thoughts? (optional)"
+
+[node name="Buttons" type="HBoxContainer" parent="Background/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="SkipButton" type="Button" parent="Background/VBox/Buttons"]
+layout_mode = 2
+text = "Skip"
+
+[node name="SubmitButton" type="Button" parent="Background/VBox/Buttons"]
+layout_mode = 2
+text = "Submit"

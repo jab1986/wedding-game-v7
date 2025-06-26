@@ -103,9 +103,9 @@ func _on_character_switched(character: String) -> void:
 	tween.tween_property(character_label, "scale", Vector2(1.2, 1.2), 0.1)
 	tween.tween_property(character_label, "scale", Vector2(1.0, 1.0), 0.1)
 	
-	# Update switch button visibility
-	if switch_button:
-		switch_button.visible = GameManager.has_jenny
+	# Update switch button visibility (disabled for now)
+	# if switch_button:
+	#	switch_button.visible = GameManager.has_jenny
 
 func _on_inventory_changed(item: String, added: bool) -> void:
 	if added:

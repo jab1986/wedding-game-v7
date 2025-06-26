@@ -1,0 +1,144 @@
+[gd_scene load_steps=8 format=3 uid="uid://btq8k3x4nkj2v"]
+
+[ext_resource type="Theme" uid="uid://c8wgpgvo2g4vy" path="res://assets/themes/wedding_theme.tres" id="1_h5k3v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0.2, 0.05, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.1, 0.8, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2"]
+bg_color = Color(0.8, 0.1, 0.8, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3"]
+bg_color = Color(0.1, 0.8, 0.8, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4"]
+bg_color = Color(0.8, 0.8, 0.1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5"]
+bg_color = Color(0.8, 0.1, 0.1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Environment" id="Environment_1"]
+background_mode = 1
+background_color = Color(0.05, 0.05, 0.1, 1)
+
+[node name="Gothic80sMainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("1_h5k3v")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.05, 0.15, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+
+[node name="GameTitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "MARK & JENNY'S
+WEDDING DISASTER"
+label_settings = SubResource("LabelSettings_gothic_title")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButtons" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer/MenuButtons"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+text = "START DISASTER"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer/MenuButtons"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "OPTIONS"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer/MenuButtons"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_4")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "CREDITS"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/MenuButtons"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_5")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "QUIT CHAOS"
+
+[node name="DecorativeElements" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Ring1" type="TextureRect" parent="DecorativeElements"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = 100.0
+modulate = Color(1, 0.8, 0.3, 0.7)
+
+[node name="Ring2" type="TextureRect" parent="DecorativeElements"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = -50.0
+modulate = Color(1, 0.8, 0.3, 0.7)

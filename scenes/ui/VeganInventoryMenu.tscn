@@ -1,0 +1,203 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3j8nak4x2r1t"]
+
+[ext_resource type="Theme" uid="uid://c8wgpgvo2g4vy" path="res://assets/themes/wedding_theme.tres" id="1_theme"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inventory_bg"]
+bg_color = Color(0.05, 0.2, 0.05, 0.9)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.2, 0.8, 0.2, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_item_slot"]
+bg_color = Color(0.2, 0.3, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.6, 0.4, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_selected"]
+bg_color = Color(0.8, 0.8, 0.2, 0.8)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="VeganInventoryMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("1_theme")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.7)
+
+[node name="InventoryPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_inventory_bg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="Title" type="Label" parent="InventoryPanel/VBoxContainer"]
+layout_mode = 2
+text = "JACK'S VEGAN ARSENAL"
+theme_override_colors/font_color = Color(0.2, 0.8, 0.2, 1)
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="ItemGrid" type="GridContainer" parent="InventoryPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 4
+
+[node name="QuinoaBowl" type="Button" parent="InventoryPanel/VBoxContainer/ItemGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_item_slot")
+theme_override_colors/font_color = Color(0.8, 0.6, 0.2, 1)
+text = "QUINOA BOWL
+Health +50"
+
+[node name="KaleSmoothie" type="Button" parent="InventoryPanel/VBoxContainer/ItemGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_item_slot")
+theme_override_colors/font_color = Color(0.2, 0.8, 0.3, 1)
+text = "KALE SMOOTHIE
+Energy +30"
+
+[node name="TofuBurger" type="Button" parent="InventoryPanel/VBoxContainer/ItemGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_item_slot")
+theme_override_colors/font_color = Color(0.6, 0.4, 0.2, 1)
+text = "TOFU BURGER
+Health +40"
+
+[node name="VeganPizza" type="Button" parent="InventoryPanel/VBoxContainer/ItemGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_item_slot")
+theme_override_colors/font_color = Color(0.8, 0.3, 0.1, 1)
+text = "VEGAN PIZZA
+Full Heal"
+
+[node name="AvocadoToast" type="Button" parent="InventoryPanel/VBoxContainer/ItemGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_item_slot")
+theme_override_colors/font_color = Color(0.4, 0.6, 0.2, 1)
+text = "AVOCADO TOAST
+Health +25"
+
+[node name="SoyLatte" type="Button" parent="InventoryPanel/VBoxContainer/ItemGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_item_slot")
+theme_override_colors/font_color = Color(0.4, 0.3, 0.2, 1)
+text = "SOY LATTE
+Speed +20"
+
+[node name="TempehWrap" type="Button" parent="InventoryPanel/VBoxContainer/ItemGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_item_slot")
+theme_override_colors/font_color = Color(0.5, 0.4, 0.2, 1)
+text = "TEMPEH WRAP
+Health +35"
+
+[node name="ChiaPudding" type="Button" parent="InventoryPanel/VBoxContainer/ItemGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_item_slot")
+theme_override_colors/font_color = Color(0.6, 0.5, 0.8, 1)
+text = "CHIA PUDDING
+Mana +40"
+
+[node name="HempSeeds" type="Button" parent="InventoryPanel/VBoxContainer/ItemGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_item_slot")
+theme_override_colors/font_color = Color(0.3, 0.5, 0.2, 1)
+text = "HEMP SEEDS
+Defense +10"
+
+[node name="Kombucha" type="Button" parent="InventoryPanel/VBoxContainer/ItemGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_item_slot")
+theme_override_colors/font_color = Color(0.8, 0.8, 0.2, 1)
+text = "KOMBUCHA
+All Stats +5"
+
+[node name="SeitanSteak" type="Button" parent="InventoryPanel/VBoxContainer/ItemGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_item_slot")
+theme_override_colors/font_color = Color(0.4, 0.2, 0.1, 1)
+text = "SEITAN STEAK
+Attack +15"
+
+[node name="AcaiBowl" type="Button" parent="InventoryPanel/VBoxContainer/ItemGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_item_slot")
+theme_override_colors/font_color = Color(0.6, 0.1, 0.4, 1)
+text = "ACAI BOWL
+Health +60"
+
+[node name="Instructions" type="Label" parent="InventoryPanel/VBoxContainer"]
+layout_mode = 2
+text = "SELECT VEGAN POWER-UPS TO SURVIVE THE WEDDING DISASTER"
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1

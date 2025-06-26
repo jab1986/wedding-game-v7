@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://e9o6p7q4r8s2u"]
+
+[ext_resource type="Script" path="res://scenes/ui/Notification.gd" id="1_f5h9j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0, 0, 0, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Notification" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = -50.0
+script = ExtResource("1_f5h9j")
+
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource("StyleBoxFlat_1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+text = "Notification Message"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

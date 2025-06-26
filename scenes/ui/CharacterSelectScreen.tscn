@@ -1,0 +1,258 @@
+[gd_scene load_steps=6 format=3 uid="uid://dunjdxps12tiw"]
+
+[ext_resource type="Theme" uid="uid://b0rikoqtewsdu" path="res://assets/themes/wedding_theme.tres" id="1_theme"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mark_box"]
+bg_color = Color(0.1, 0.3, 0.8, 0.8)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.2, 0.5, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_info_panel"]
+bg_color = Color(0.1, 0.1, 0.2, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.5, 0.8, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jenny_box"]
+bg_color = Color(0.8, 0.1, 0.4, 0.8)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.2, 0.6, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_selected"]
+bg_color = Color(1, 1, 0, 0.3)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="CharacterSelectScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.15, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 50.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.9, 0.1, 0.5, 1)
+theme_override_font_sizes/font_size = 36
+text = "SELECT YOUR DISASTER HERO"
+horizontal_alignment = 1
+
+[node name="CharacterContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MarkContainer" type="VBoxContainer" parent="CharacterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MarkPortrait" type="Panel" parent="CharacterContainer/MarkContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_mark_box")
+
+[node name="MarkLabel" type="Label" parent="CharacterContainer/MarkContainer/MarkPortrait"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -15.0
+offset_right = 50.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+text = "MARK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarkName" type="Label" parent="CharacterContainer/MarkContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "MARK THE DRUMMER"
+horizontal_alignment = 1
+
+[node name="MarkStats" type="Panel" parent="CharacterContainer/MarkContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_info_panel")
+
+[node name="StatsLabel" type="Label" parent="CharacterContainer/MarkContainer/MarkStats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 16
+text = "ATTACK: ★★★★☆
+SPEED: ★★★☆☆
+HEALTH: ★★★★☆
+SPECIAL: DRUMSTICK THROW"
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="CharacterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="JennyContainer" type="VBoxContainer" parent="CharacterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="JennyPortrait" type="Panel" parent="CharacterContainer/JennyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_jenny_box")
+
+[node name="JennyLabel" type="Label" parent="CharacterContainer/JennyContainer/JennyPortrait"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -15.0
+offset_right = 50.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+text = "JENNY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JennyName" type="Label" parent="CharacterContainer/JennyContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 24
+text = "JENNY THE BRIDE"
+horizontal_alignment = 1
+
+[node name="JennyStats" type="Panel" parent="CharacterContainer/JennyContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_info_panel")
+
+[node name="StatsLabel" type="Label" parent="CharacterContainer/JennyContainer/JennyStats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 16
+text = "ATTACK: ★★★☆☆
+SPEED: ★★★★★
+HEALTH: ★★★☆☆
+SPECIAL: WEDDING BOUQUET"
+vertical_alignment = 1
+
+[node name="SelectionHighlight" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -220.0
+offset_right = -120.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_selected")
+
+[node name="Instructions" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 18
+text = "USE ARROW KEYS TO SELECT • ENTER TO CONFIRM • ESC TO GO BACK"
+horizontal_alignment = 1
